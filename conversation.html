@@ -473,8 +473,21 @@ const STEPS = [
   // 1: Name — then ease in gently
   {
     handler: (msg) => {
-      name = msg.trim().split(/\s+/)[0].replace(/[^a-zA-Z]/g, '');
-      if (name.length < 2 || ['yes','hi','hello','ok','sure','ready','hey'].includes(name.toLowerCase())) {
+      // Extract name — handle "My name is X", "I'm X", "It's X", "X", etc.
+      let raw = msg.trim();
+      const patterns = [
+        /my name is (\w+)/i,
+        /i'?m (\w+)/i,
+        /it'?s (\w+)/i,
+        /call me (\w+)/i,
+        /they call me (\w+)/i,
+      ];
+      for (const p of patterns) {
+        const m = raw.match(p);
+        if (m) { raw = m[1]; break; }
+      }
+      name = raw.split(/\s+/)[0].replace(/[^a-zA-Z'-]/g, '');
+      if (name.length < 2 || ['yes','hi','hello','ok','sure','ready','hey','my','the','its','im'].includes(name.toLowerCase())) {
         name = '';
         return { sage: "Just your first name is perfect.", qr: [] };
       }
