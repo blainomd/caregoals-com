@@ -861,59 +861,61 @@ function saveToLocal() {
 }
 
 function loadConversation() {
-  const saved = localStorage.getItem('caregoals_conversation');
-  if (!saved) return false;
   try {
+    const saved = localStorage.getItem('caregoals_conversation');
+    if (!saved) return false;
     const data = JSON.parse(saved);
-    if (!data.messages || data.messages.length < 3) return false;
+    if (!data || !data.messages || !Array.isArray(data.messages) || data.messages.length < 3) {
+      localStorage.removeItem('caregoals_conversation');
+      return false;
+    }
     name = data.name || '';
     wishes = data.wishes || {};
     step = data.step || 0;
-    // Replay messages
-    data.messages.forEach(m => {
-      const d = document.createElement('div');
-      d.className = `msg msg-${m.sender}`;
-      const b = document.createElement('div');
+    data.messages.forEach(function(m) {
+      var d = document.createElement('div');
+      d.className = 'msg msg-' + m.sender;
+      var b = document.createElement('div');
       b.className = 'msg-bubble';
       b.textContent = m.text;
       d.appendChild(b);
       chat.appendChild(d);
     });
-    // Show wishes card if we got that far
     if (step >= 13 && Object.keys(wishes).length >= 5) {
       showWishesCard();
     }
     chat.scrollTop = chat.scrollHeight;
-    // Add welcome back
-    setTimeout(async () => {
-      await sageReply(`${name}, welcome back. I remember our conversation. You can keep going, add to your wishes, or just sit here. I'm not going anywhere.`);
+    setTimeout(function() {
+      sageReply((name || 'Friend') + ', welcome back. I remember our conversation. You can keep going, add to your wishes, or just sit here.');
     }, 800);
     return true;
-  } catch { return false; }
-}
-
-// Start
-window.addEventListener('load', () => {
-  try {
-    const resumed = loadConversation();
-    if (!resumed) {
-      setTimeout(() => {
-        const first = STEPS[0];
-        addMsg(first.sage, 'sage').then(() => {
-          speak(first.sage);
-          step = 1;
-          setTimeout(() => showQR(first.qr), 600);
-        });
-      }, 800);
-    }
   } catch(e) {
     console.error('Load error:', e);
-    // Fallback: show first message directly
-    setTimeout(() => {
-      addMsg("Hi. I'm Sage. I'm glad you're here. What's your name?", 'sage');
-      step = 1;
-    }, 500);
+    localStorage.removeItem('caregoals_conversation');
+    return false;
   }
+}
+
+// Start — always show something
+function startFresh() {
+  step = 1;
+  var msg = "Hi. I'm Sage.\n\nI'm glad you're here. What we're going to do is simple — just talk. About you. About what matters to you. About the things you want the people you love to understand.\n\nBy the end, you'll have something real — a document in your own words that your family and your doctor can hold onto. Not medical language. Your language.\n\nWhat's your name?";
+  addMsg(msg, 'sage');
+}
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    try {
+      var resumed = loadConversation();
+      if (!resumed) {
+        startFresh();
+      }
+    } catch(e) {
+      console.error('Start error:', e);
+      localStorage.removeItem('caregoals_conversation');
+      startFresh();
+    }
+  }, 600);
 });
 </script>
 
