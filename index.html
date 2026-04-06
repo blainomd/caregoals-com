@@ -1061,6 +1061,32 @@
     </div>
   </section>
 
+  <!-- ADD TO CLAUDE -->
+  <section style="padding: 80px 0; background: var(--cream-warm);">
+    <div style="max-width: 800px; margin: 0 auto; padding: 0 24px; text-align: center;">
+      <h2 style="font-family: var(--serif); font-size: 2rem; margin-bottom: 12px; color: var(--navy);">Two ways to begin</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 48px; font-size: 1.05rem;">Start your first Sage conversation on the web, or add CareGoals to your Claude assistant.</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left;">
+        <div style="background: var(--cream); border: 1px solid rgba(44,62,80,0.1); border-radius: 16px; padding: 32px;">
+          <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; color: var(--navy);">Start on caregoals.com</div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">Free. A conversation, not a form.</p>
+          <a href="conversation.html" style="display: inline-block; padding: 12px 24px; background: var(--sage-deep); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-family: var(--sans);">Begin with Sage</a>
+        </div>
+        <div style="background: var(--navy); border-radius: 16px; padding: 32px; color: white;">
+          <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Add to Claude</div>
+          <p style="color: var(--text-tertiary); font-size: 0.9rem; margin-bottom: 16px;">Settings &rarr; Connectors &rarr; Add Custom &rarr; URL:</p>
+          <div style="background: var(--navy-light); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px 16px; font-family: monospace; font-size: 0.82rem; color: #aab; word-break: break-all; margin-bottom: 16px;">caregoals-mcp-production.up.railway.app/mcp</div>
+          <p style="color: var(--text-tertiary); font-size: 0.8rem;">Your Claude becomes an advance care planning assistant. 19 tools: care goals, story capture, family history, wish documentation, practice revenue analysis.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 20px; background: var(--cream); border: 1px solid rgba(44,62,80,0.1); border-radius: 12px;">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;"><strong style="color: var(--navy)">What is a Claude Connector?</strong> It gives your Claude AI assistant direct access to CareGoals' physician-supervised tools. Ask Claude to start an advance care planning conversation, capture family stories, or document care wishes — all from one conversation.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -1095,5 +1121,6 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
+<script src="https://solvinghealth.com/chat-widget.js" data-channel="caregoals" data-color="#7c9a7c"></script>
 </body>
 </html>
