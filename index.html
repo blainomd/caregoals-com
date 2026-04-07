@@ -483,8 +483,8 @@
     <a href="#" class="nav-brand">CareGoals</a>
     <div class="nav-links">
       <a href="#how-it-works">How It Works</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#advance-directive">Advance Directive</a>
+      <a href="#start-talking">Start Talking</a>
       <a href="https://co-op.care" target="_blank" rel="noopener">co-op.care</a>
     </div>
   </nav>
@@ -693,6 +693,116 @@
     </div>
   </section>
 
+  <!-- Advance Directive Creator -->
+  <section class="how-it-works" id="advance-directive" style="background: var(--inverse-surface); color: var(--on-primary);">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label" style="color: var(--tertiary);">Advance Care Planning</p>
+        <h2 style="color: var(--on-primary);">The conversation that changes everything</h2>
+      </div>
+      <div style="max-width: 640px; margin: 2rem auto 0;">
+        <p class="reveal delay-1" style="font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--outline-variant); line-height: 1.7; margin-bottom: 2rem;">
+          Most families never have this conversation. Not because they don't care -- because they don't know where to start. Sage starts it for you.
+        </p>
+        <div class="reveal delay-2" style="margin-bottom: 3rem;">
+          <p style="color: var(--outline-variant); margin-bottom: 1.5rem;">Inspired by Five Wishes, the most widely used advance directive in America, Sage walks your family through five questions that matter:</p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); padding: 1.25rem 1.5rem; border-left: 3px solid var(--tertiary);">
+              <p style="font-weight: 600; color: var(--on-primary); margin-bottom: 0.25rem;">1. Who speaks for me when I can't?</p>
+              <p style="font-size: 0.9rem; color: var(--outline-variant);">Your healthcare proxy -- the person who knows your heart.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); padding: 1.25rem 1.5rem; border-left: 3px solid var(--tertiary);">
+              <p style="font-weight: 600; color: var(--on-primary); margin-bottom: 0.25rem;">2. What kind of medical treatment do I want?</p>
+              <p style="font-size: 0.9rem; color: var(--outline-variant);">Life support, resuscitation, ventilators -- your preferences, documented clearly.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); padding: 1.25rem 1.5rem; border-left: 3px solid var(--tertiary);">
+              <p style="font-weight: 600; color: var(--on-primary); margin-bottom: 0.25rem;">3. How comfortable do I want to be?</p>
+              <p style="font-size: 0.9rem; color: var(--outline-variant);">Pain management, dignity, surroundings -- the details that define quality of life.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); padding: 1.25rem 1.5rem; border-left: 3px solid var(--tertiary);">
+              <p style="font-weight: 600; color: var(--on-primary); margin-bottom: 0.25rem;">4. How do I want people to treat me?</p>
+              <p style="font-size: 0.9rem; color: var(--outline-variant);">Bathing, grooming, music, prayers, visitors -- what presence looks like.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-xl); padding: 1.25rem 1.5rem; border-left: 3px solid var(--tertiary);">
+              <p style="font-weight: 600; color: var(--on-primary); margin-bottom: 0.25rem;">5. What do I want my loved ones to know?</p>
+              <p style="font-size: 0.9rem; color: var(--outline-variant);">Forgiveness, gratitude, final messages -- the words that outlive us.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal delay-3" style="text-align: center;">
+          <p style="color: var(--outline-variant); margin-bottom: 1.5rem; font-size: 1.05rem;">
+            Sage guides the conversation. You talk. It listens. At the end, you get a complete advance directive -- generated from your own words, not a form.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+            <button onclick="document.getElementById('sv-vbtn')?.click()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: var(--primary); color: var(--on-primary); border: none; border-radius: 100px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: var(--sans); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+              Start the conversation with Sage
+            </button>
+            <button onclick="document.getElementById('sh-chat-btn')?.click()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: transparent; color: var(--outline-variant); border: 1px solid var(--outline); border-radius: 100px; font-size: 1rem; font-weight: 500; cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--on-primary)';this.style.color='var(--on-primary)'" onmouseout="this.style.borderColor='var(--outline)';this.style.color='var(--outline-variant)'">
+              Or type instead
+            </button>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--outline); margin-top: 1.5rem;">
+            Medicare covers advance care planning conversations (CPT 99497/99498). Your physician can bill for the time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversation Starters -->
+  <section class="how-it-works" id="start-talking">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Start Talking</p>
+        <h2>Not sure where to begin? Try one of these.</h2>
+      </div>
+      <div style="max-width: 640px; margin: 2rem auto 0; display: flex; flex-direction: column; gap: 0.75rem;">
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "I want to create an advance directive but I don't know where to start."
+        </button>
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "How do I talk to my parents about end-of-life wishes?"
+        </button>
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "What's the difference between a living will and a healthcare proxy?"
+        </button>
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "My mom was just diagnosed with dementia. What should we do now?"
+        </button>
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "Is hospice the same as giving up?"
+        </button>
+        <button onclick="document.getElementById('sh-chat-btn')?.click()" style="width: 100%; text-align: left; padding: 1.25rem 1.5rem; background: var(--surface-container); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); font-size: 1rem; color: var(--on-surface); cursor: pointer; font-family: var(--sans); transition: all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.background='var(--surface-container-high)'" onmouseout="this.style.borderColor='var(--outline-variant)';this.style.background='var(--surface-container)'">
+          "I want to record my father's stories before it's too late."
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connector CTA -->
+  <section style="background: var(--surface-container); padding: 5rem 2rem; text-align: center;" id="connector">
+    <div class="container">
+      <div class="reveal">
+        <h2>Get the CareGoals connector</h2>
+        <p style="color: var(--outline); font-size: 1.05rem; margin-top: 1rem; max-width: 540px; margin-left: auto; margin-right: auto;">
+          Add the SolvingHealth connector to Claude and get a personal advance care planning guide that lives in your AI.
+        </p>
+      </div>
+      <div class="reveal delay-1" style="max-width: 480px; margin: 2rem auto; background: var(--surface); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); padding: 1.5rem; text-align: left;">
+        <p style="font-size: 0.75rem; font-weight: 600; color: var(--outline); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Claude Desktop MCP Config</p>
+        <pre style="font-size: 0.85rem; font-family: monospace; color: var(--on-surface); overflow-x: auto; white-space: pre; line-height: 1.6;">"caregoals": {
+  "command": "npx",
+  "args": ["-y", "@anthropic-ai/mcp-remote",
+    "https://solvinghealth.com/mcp"]
+}</pre>
+      </div>
+      <p class="reveal delay-2" style="font-size: 0.9rem; color: var(--outline);">
+        Don't have Claude? Get it free at <a href="https://claude.ai" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 500;">claude.ai</a> or use the chat and voice widgets on this page.
+      </p>
+    </div>
+  </section>
+
   <!-- Testimonial -->
   <section class="testimonial" id="testimonial">
     <div class="container">
@@ -756,5 +866,7 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
+<script src="https://solvinghealth.com/chat-widget.js" data-channel="caregoals" data-color="#4A7C59" defer></script>
+<script src="https://solvinghealth.com/voice-embed.js" data-site="caregoals" defer></script>
 </body>
 </html>
