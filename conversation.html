@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Conversations — CareGoals</title>
-<meta name="description" content="Learn what CareGoals conversations cover — values, medical decisions, who decides, living preferences, and legacy."/>
+<meta name="description" content="Explore the five conversation domains CareGoals covers — values, medical decisions, living preferences, who decides, and legacy."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -14,27 +14,13 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-container-low": "#f6f3f2",
-        "surface-bright": "#fcf9f8",
-        "surface": "#fcf9f8",
-        "surface-container-highest": "#e5e2e1",
-        "background": "#fcf9f8",
-        "on-primary-container": "#98c27b",
-        "secondary": "#b02d21",
-        "secondary-container": "#fc6451",
-        "outline": "#73796c",
-        "on-surface-variant": "#43493d",
-        "surface-container-high": "#eae7e7",
-        "surface-container": "#f0eded",
-        "primary-container": "#2d5016",
-        "on-secondary": "#ffffff",
-        "on-primary": "#ffffff",
-        "on-surface": "#1c1b1b",
-        "outline-variant": "#c3c9b9",
-        "primary": "#173901",
-        "inverse-surface": "#313030",
-        "inverse-primary": "#a8d38a",
-        "on-background": "#1c1b1b"
+        "surface-container-low": "#f6f3f2","surface-bright": "#fcf9f8","surface": "#fcf9f8",
+        "surface-container-highest": "#e5e2e1","background": "#fcf9f8","on-primary-container": "#98c27b",
+        "secondary": "#b02d21","secondary-container": "#fc6451","outline": "#73796c",
+        "on-surface-variant": "#43493d","surface-container-high": "#eae7e7","surface-container": "#f0eded",
+        "primary-container": "#2d5016","on-secondary": "#ffffff","on-primary": "#ffffff",
+        "on-surface": "#1c1b1b","outline-variant": "#c3c9b9","primary": "#173901",
+        "inverse-surface": "#313030","inverse-primary": "#a8d38a","on-background": "#1c1b1b"
       },
       borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
       fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
@@ -45,234 +31,486 @@ tailwind.config = {
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   body { min-height: 100dvh; }
+
+  .domain-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: all 0.18s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  .domain-btn:hover {
+    background: #f0eded;
+    border-color: #c3c9b9;
+  }
+  .domain-btn.active {
+    background: #173901;
+    border-color: #173901;
+  }
+  .domain-btn.active .domain-label {
+    color: #fff;
+  }
+  .domain-btn.active .domain-icon {
+    color: #a8d38a;
+  }
+  .domain-icon { color: #43493d; font-size: 22px; transition: color 0.18s; }
+  .domain-label { font-size: 14px; font-weight: 700; color: #1c1b1b; transition: color 0.18s; }
+
+  .question-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    border: 1px solid #e5e2e1;
+    margin-bottom: 14px;
+    transition: box-shadow 0.2s;
+  }
+  .question-card:hover { box-shadow: 0 4px 20px rgba(23,57,1,0.07); }
+
+  .answer-reveal {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.35s ease;
+    opacity: 0;
+  }
+  .answer-reveal.open {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  .reveal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #173901;
+    background: rgba(23,57,1,0.07);
+    border: none;
+    border-radius: 100px;
+    padding: 7px 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.15s;
+  }
+  .reveal-btn:hover { background: rgba(23,57,1,0.14); }
+  .reveal-btn.revealed { background: rgba(23,57,1,0.12); color: #2d5016; }
+
+  .summary-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #f6f3f2;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .summary-entry.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .domain-panel {
+    display: none;
+  }
+  .domain-panel.active {
+    display: block;
+  }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body">
 
 <header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(252,249,248,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(115,121,108,0.12);">
-  <div class="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between" style="height:60px;">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:60px;">
     <a href="/" class="font-extrabold text-lg tracking-tight text-primary" style="text-decoration:none;">CareGoals</a>
     <nav class="hidden md:flex items-center gap-7">
       <a href="conversation.html" class="text-sm font-medium text-primary" style="text-decoration:none;">Conversations</a>
-      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Features</a>
-      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">co-op.care</a>
+      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">Features</a>
+      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">co-op.care</a>
       <a href="sage-onboarding.html" class="text-sm font-bold text-white px-5 py-2.5 rounded-full" style="background:#fc6451;text-decoration:none;">Start with Sage</a>
     </nav>
   </div>
 </header>
 <div style="height:60px;"></div>
 
-<!-- Inner hero -->
+<!-- Hero -->
 <section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);padding:64px 24px 72px;">
-  <div style="max-width:700px;margin:0 auto;text-align:center;">
-    <h1 style="font-family:'Inter',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">The conversations worth having</h1>
-    <p style="font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.75);line-height:1.6;">Five conversation domains. Each one designed to surface what matters most, not just what's legally required.</p>
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <h1 style="font-family:'Inter',sans-serif;font-size:clamp(28px,4.5vw,52px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">The conversations worth having</h1>
+    <p style="font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.75);line-height:1.65;max-width:560px;margin:0 auto;">Five conversation domains. Each one designed to surface what matters most — not just what's legally required. Explore them below, then see real answers from real conversations.</p>
   </div>
 </section>
 
-<!-- What CareGoals covers -->
-<section style="padding:80px 24px;background:#fcf9f8;">
-  <div style="max-width:900px;margin:0 auto;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:48px;text-align:center;">What CareGoals covers</h2>
-    <div style="display:flex;flex-direction:column;gap:40px;">
-
-      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
-        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">favorite</span>
-        </div>
-        <div>
-          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">What matters most</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">Most advance care planning tools jump straight to medical preferences — do you want CPR? Ventilator support? But those questions land differently when they're grounded in values first.</p>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">Sage starts by learning what a good life looks like for you. Independence. Dignity. Connection to family. Time outdoors. These answers shape everything that follows — and they give your family a richer understanding of who you are, not just what paperwork you've signed.</p>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
-        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">medical_services</span>
-        </div>
-        <div>
-          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Medical decisions</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">CPR. Mechanical ventilation. Artificial nutrition. Hospitalization versus comfort care at home. These are the decisions that families face in emergency rooms and ICUs — often without any prior guidance.</p>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">Sage walks through these questions gently, in plain language, framing each as a real choice rather than a bureaucratic checkbox. It also captures the reasoning behind the decision — "I don't want to be on a ventilator because I watched my father go through that" is more useful to a family than a checked box.</p>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
-        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">home</span>
-        </div>
-        <div>
-          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Living and care preferences</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">Where do you want to live as you age? Home with support, an assisted living community, closer to family in another city? What does your daily routine matter to you? Who should be allowed to visit — and who shouldn't?</p>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">These aren't just nice-to-haves. When a parent can no longer speak for themselves, these answers prevent months of difficult family debate — and they allow caregivers to provide genuinely personalized care.</p>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
-        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">person_check</span>
-        </div>
-        <div>
-          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Who decides</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">A healthcare proxy is the person who speaks for you when you can't speak for yourself. A durable power of attorney handles financial decisions. These roles are among the most important designations in advance care planning — and they're often undone by conflict when they haven't been explicitly named.</p>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">CareGoals helps you think through who you trust most, what guidance you want to give them, and how to notify them so the designation doesn't come as a surprise.</p>
-        </div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
-        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">auto_stories</span>
-        </div>
-        <div>
-          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Legacy</h3>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">What do you want people to remember about you? Are there stories from your life that your grandchildren don't know? Are there values you've tried to live by that you want to pass forward explicitly?</p>
-          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">This section is different from the others — it's not about decisions, it's about meaning. Families who complete this section often describe it as the most emotionally significant part. It turns a care planning document into something that endures.</p>
-        </div>
-      </div>
-
-    </div>
+<!-- Interactive explorer instruction bar -->
+<div style="background:#f6f3f2;border-bottom:1px solid #e5e2e1;padding:16px 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:10px;">
+    <span class="material-symbols-outlined" style="color:#173901;font-size:18px;">touch_app</span>
+    <span style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;">Select a domain on the left. Open any question to see a sample answer. Your care summary preview builds as you explore.</span>
   </div>
-</section>
+</div>
 
-<!-- How Sage guides -->
-<section style="padding:80px 24px;background:#f6f3f2;">
-  <div style="max-width:800px;margin:0 auto;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:16px;text-align:center;">How Sage guides the conversation</h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:48px;line-height:1.7;">Sage is an AI that asks open-ended questions, never judges, and moves at your pace. It saves everything and builds on what you've shared across sessions.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;">
-      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
-        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">slow_motion_video</span>
-        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Moves at your pace</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">No pressure to answer everything in one session. Come back tomorrow, next week, whenever you're ready.</p>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
-        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">psychology</span>
-        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Open-ended questions</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Sage asks questions that invite reflection, not yes/no checkboxes. Your answers are captured in your own words.</p>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
-        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">memory</span>
-        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Remembers context</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Sage builds a cumulative profile across sessions. It won't ask what you've already answered.</p>
-      </div>
-      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
-        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">lock</span>
-        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Private and secure</h3>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Your responses are encrypted and never sold. You control who sees your care summary.</p>
+<!-- MAIN INTERACTIVE EXPLORER -->
+<section style="padding:48px 24px 80px;background:#fcf9f8;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:240px 1fr 300px;gap:32px;align-items:start;">
+
+    <!-- LEFT: Domain nav -->
+    <div style="position:sticky;top:84px;">
+      <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#73796c;margin-bottom:12px;padding-left:4px;">Conversation domains</div>
+      <button class="domain-btn active" onclick="selectDomain(0)" id="domain-btn-0">
+        <span class="material-symbols-outlined domain-icon">favorite</span>
+        <span class="domain-label">What matters most</span>
+      </button>
+      <button class="domain-btn" onclick="selectDomain(1)" id="domain-btn-1">
+        <span class="material-symbols-outlined domain-icon">medical_services</span>
+        <span class="domain-label">Medical decisions</span>
+      </button>
+      <button class="domain-btn" onclick="selectDomain(2)" id="domain-btn-2">
+        <span class="material-symbols-outlined domain-icon">home</span>
+        <span class="domain-label">How you want to live</span>
+      </button>
+      <button class="domain-btn" onclick="selectDomain(3)" id="domain-btn-3">
+        <span class="material-symbols-outlined domain-icon">record_voice_over</span>
+        <span class="domain-label">Who speaks for you</span>
+      </button>
+      <button class="domain-btn" onclick="selectDomain(4)" id="domain-btn-4">
+        <span class="material-symbols-outlined domain-icon">auto_stories</span>
+        <span class="domain-label">Your legacy</span>
+      </button>
+
+      <div style="margin-top:24px;padding:16px;background:#f6f3f2;border-radius:10px;">
+        <div style="font-family:'Inter',sans-serif;font-size:12px;color:#73796c;line-height:1.6;">Select any question and reveal its answer. Your care summary builds automatically.</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Sample questions -->
-<section style="padding:80px 24px;background:#fcf9f8;">
-  <div style="max-width:800px;margin:0 auto;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:12px;text-align:center;">Sample questions Sage asks</h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:40px;">These aren't trick questions or legal terms. They're the conversations families wish they'd had sooner.</p>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What does a good day look like for you right now?"</p>
+    <!-- CENTER: Domain panels -->
+    <div>
+
+      <!-- Domain 0: What matters most -->
+      <div class="domain-panel active" id="panel-0">
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;background:#173901;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined" style="color:#a8d38a;font-size:22px;">favorite</span>
+            </div>
+            <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;">What matters most</h2>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.75;">Sage starts here — before any medical questions. Understanding what makes life meaningful shapes every answer that follows. These aren't hypotheticals. They're about right now.</p>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"Describe what a really good day feels like for you right now."</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 0, 0)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"A slow morning — coffee before anyone needs anything from me. A walk. Reading. Something creative in the afternoon. Ending the day having talked to someone I love."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What activities or experiences are so important to you that life wouldn't feel like yours without them?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 0, 1)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Gardening. Cooking Sunday dinners for my family. Following my grandchildren's lives closely."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What does independence mean to you, specifically?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 0, 2)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Being able to decide my own schedule. Not needing to ask permission for things I've always managed myself. Staying in my own home."</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What worries you most about getting older or becoming more dependent?"</p>
+
+      <!-- Domain 1: Medical decisions -->
+      <div class="domain-panel" id="panel-1">
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;background:#173901;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined" style="color:#a8d38a;font-size:22px;">medical_services</span>
+            </div>
+            <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;">Medical decisions</h2>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.75;">These are the questions families face at 2am in the ICU. Sage asks them in plain language, grounded in what the person already told Sage they value. The reasoning behind the answer matters as much as the answer itself.</p>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"If you were seriously ill and the medical team offered a treatment that might help but would mean weeks in the hospital — how would you weigh that decision?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 1, 0)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #fc6451;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"It would depend on what 'might help' actually means. I'd want to know the realistic odds. I'm not afraid of discomfort if there's real hope. But I don't want to spend my last weeks in a hospital bed for a 5% chance."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What does 'quality of life' mean to you, concretely?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 1, 1)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #fc6451;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Being able to recognize my family. Having some control over my day. Not being in constant pain. Those are the things that make life feel like mine."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"If you could no longer communicate, what would you most want your care team to know about how to treat you?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 1, 2)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #fc6451;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"That I value being talked to, not talked about. That even if I can't respond, I may still be aware. That comfort and dignity matter more to me than extending time."</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What would make life feel like it was no longer worth living for you personally?"</p>
+
+      <!-- Domain 2: How you want to live -->
+      <div class="domain-panel" id="panel-2">
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;background:#173901;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined" style="color:#a8d38a;font-size:22px;">home</span>
+            </div>
+            <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;">How you want to live</h2>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.75;">Where you are, what surrounds you, and how a caregiver should treat you — these aren't luxuries. When someone can no longer advocate for themselves, these details prevent months of family debate and let caregivers provide genuinely personal care.</p>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"If you needed ongoing care, where would you most want to receive it?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 2, 0)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #2d5016;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Home, unquestionably. My own bedroom. My own kitchen. Even if I needed someone there all day — I'd want it to be in my home."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What would your ideal care environment feel like on a typical day?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 2, 1)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #2d5016;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Quiet in the morning. Visitors I actually want to see in the afternoon. A caregiver who feels more like a neighbor than an employee. Music, natural light, my own things around me."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"Are there things about your daily routine that are non-negotiable to you?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 2, 2)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #2d5016;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Morning coffee before anyone talks to me. A window I can look out of. My garden nearby if possible. These aren't luxuries — they're what makes life feel continuous."</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"Who do you trust most to make decisions for you when you can't make them yourself?"</p>
+
+      <!-- Domain 3: Who speaks for you -->
+      <div class="domain-panel" id="panel-3">
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;background:#173901;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined" style="color:#a8d38a;font-size:22px;">record_voice_over</span>
+            </div>
+            <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;">Who speaks for you</h2>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.75;">A healthcare proxy is the person who speaks for you when you can't. This is among the most consequential designations in advance care planning — and it's often undermined by family conflict when it hasn't been explicitly named and explained.</p>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"Who in your life knows you well enough to make hard decisions on your behalf — and would actually make the choice you'd make?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 3, 0)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"My son David. We've talked about this. He doesn't flinch from hard things. He knows I wouldn't want to be kept alive if there was no meaningful chance of recovery. He'd honor that, even if it was painful for him."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What do you want your healthcare proxy to know that they might not already know?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 3, 1)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"That I've thought about this. That my preferences aren't a crisis response — I've been at peace with this for years. I want them to act without guilt."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"Are there family members who might challenge decisions your proxy makes — and have you prepared for that?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 3, 2)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #a8d38a;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"My daughter and I don't always see eye to eye on this. She's more 'do everything possible.' I need to have a real conversation with her before anything happens. This process is helping me realize I've been putting that off."</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"If you could no longer live on your own, where would you want to be?"</p>
+
+      <!-- Domain 4: Legacy -->
+      <div class="domain-panel" id="panel-4">
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;background:#173901;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined" style="color:#a8d38a;font-size:22px;">auto_stories</span>
+            </div>
+            <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;">Your legacy</h2>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.75;">This section is different from the others. It's not about decisions — it's about meaning. Families who complete this section often describe it as the most emotionally significant part. It turns a care planning document into something that endures.</p>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What do you want people to say about you at your memorial — not the achievements, but the way you made them feel?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 4, 0)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #173901;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"That I showed up. That I was the person people called when something hard happened. That I made things a little less scary."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"Is there something important about your life that most people don't know?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 4, 1)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #173901;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"That I almost became a musician. I spent two years playing in a jazz band in my twenties. I gave it up for practical reasons. Music has been the private language of my inner life ever since."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <p style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#1c1b1b;line-height:1.6;font-style:italic;">"What values do you most want to pass on — to your children, grandchildren, the people you've loved?"</p>
+          <button class="reveal-btn" onclick="revealAnswer(this, 4, 2)">
+            <span class="material-symbols-outlined" style="font-size:15px;">visibility</span>
+            See a sample answer
+          </button>
+          <div class="answer-reveal">
+            <div style="margin-top:14px;padding:16px;background:#f6f3f2;border-radius:8px;border-left:3px solid #173901;">
+              <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.75;font-style:italic;">"Curiosity. The belief that learning doesn't stop. And a kind of stubborn faith that things can get better — that the future is worth showing up for."</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"Is there a story from your life that you'd want your grandchildren to know?"</p>
-      </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What would you want your doctors to know about you as a person — not just your medical history?"</p>
-      </div>
-      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
-        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
-        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"How important is it to you to stay alive as long as possible, even if that means significant discomfort?"</p>
+
+    </div><!-- end center panels -->
+
+    <!-- RIGHT: Care Summary Preview -->
+    <div style="position:sticky;top:84px;">
+      <div style="background:#fff;border-radius:16px;padding:24px;border:1px solid #e5e2e1;box-shadow:0 4px 24px rgba(23,57,1,0.06);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span class="material-symbols-outlined" style="color:#173901;font-size:18px;">description</span>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:#173901;">Your care summary</div>
+        </div>
+        <p style="font-family:'Inter',sans-serif;font-size:12px;color:#73796c;margin-bottom:18px;line-height:1.55;">Reveal answers to see your summary build.</p>
+
+        <div id="summary-empty" style="text-align:center;padding:20px 0;">
+          <span class="material-symbols-outlined" style="color:#c3c9b9;font-size:36px;display:block;margin-bottom:8px;">pending</span>
+          <p style="font-family:'Inter',sans-serif;font-size:13px;color:#73796c;line-height:1.55;">Open any question to start building your care summary.</p>
+        </div>
+
+        <div id="summary-entries"></div>
+
+        <div id="summary-cta" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #f0eded;">
+          <a href="sage-onboarding.html" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;padding:12px 16px;border-radius:100px;text-decoration:none;">
+            Build your real summary
+            <span class="material-symbols-outlined" style="font-size:15px;">arrow_forward</span>
+          </a>
+          <p style="font-family:'Inter',sans-serif;font-size:11px;color:#73796c;text-align:center;margin-top:8px;line-height:1.5;">Free · 20 minutes · Nothing is final</p>
+        </div>
       </div>
     </div>
-  </div>
+
+  </div><!-- end grid -->
 </section>
 
-<!-- The output -->
-<section style="padding:80px 24px;background:#f6f3f2;">
-  <div style="max-width:800px;margin:0 auto;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:12px;text-align:center;">The output — your Care Summary</h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:40px;line-height:1.7;">At the end of your conversation, CareGoals produces a Care Summary — a readable document that captures your values, preferences, and decisions in a format families and care teams can actually use.</p>
-    <div style="background:#fff;border-radius:16px;padding:32px;border:1px solid #e5e2e1;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #f0eded;">
-        <span class="material-symbols-outlined" style="color:#173901;font-size:28px;">description</span>
-        <div>
-          <div style="font-family:'Inter',sans-serif;font-size:16px;font-weight:800;color:#1c1b1b;">Dorothy's Care Summary</div>
-          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#73796c;">Last updated April 2026 · Shared with 3 family members</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
-          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">What matters most to Dorothy</div>
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Being at home. Seeing her grandchildren regularly. Having her morning coffee on the porch. Staying sharp mentally — she says "I'd rather feel pain than feel lost."</p>
-        </div>
-        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
-          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">Medical preferences</div>
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Does not want mechanical ventilation if there is no realistic expectation of recovery. Prefers comfort-focused care. Does not want hospitalization for end-stage decline — prefers home with hospice support.</p>
-        </div>
-        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
-          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">Healthcare proxy</div>
-          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Primary: Margaret (daughter, Boulder CO). Alternate: Thomas (son, Denver). "Margaret knows how I think. She'll do the hard thing even when it's hard."</p>
-        </div>
-      </div>
-    </div>
-    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;text-align:center;margin-top:16px;">Your Care Summary can be shared securely with family members, your physician, and your care team.</p>
-  </div>
-</section>
-
-<!-- CTA -->
+<!-- Bottom CTA -->
 <section style="background:#173901;padding:72px 24px;text-align:center;">
   <div style="max-width:560px;margin:0 auto;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:16px;">Start your conversation</h2>
-    <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:32px;line-height:1.7;">It takes about 20 minutes for a first session. Nothing is final — every answer can be updated anytime.</p>
-    <a href="sage-onboarding.html" style="display:inline-flex;align-items:center;gap:8px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;padding:16px 32px;border-radius:100px;text-decoration:none;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:900;color:#fff;margin-bottom:16px;">Start your own conversation</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:36px;line-height:1.7;">Sage will guide you through every domain at your pace. Nothing is final — every answer can be updated anytime. Your family will thank you for it.</p>
+    <a href="sage-onboarding.html" style="display:inline-flex;align-items:center;gap:8px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;padding:16px 36px;border-radius:100px;text-decoration:none;">
       Begin with Sage
       <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
     </a>
   </div>
 </section>
 
-<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;margin-top:0;">
+<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,0.08);">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided care planning conversations. A co-op.care product.</p>
-      </div>
-      <div>
-        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
+      <div><div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided advance care planning. A co-op.care product.</p></div>
+      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
         <a href="conversation.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Conversations</a>
-        <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a>
-        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a>
-      </div>
-      <div>
-        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
+        <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a></div>
+      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
         <a href="features.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Features</a>
-        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Gallery</a>
-      </div>
-      <div>
-        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
-        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a>
-      </div>
+        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Stories</a></div>
+      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
+        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a></div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <span style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);">© 2026 CareGoals · A co-op.care product</span>
@@ -280,5 +518,91 @@ tailwind.config = {
     </div>
   </div>
 </footer>
+
+<script>
+var currentDomain = 0;
+
+// Summary entries for each domain (unlocked by revealing any answer in that domain)
+var summaryData = {
+  0: { label: "What matters most", text: "Slow mornings, independence, staying home. Daily walks and family connection are non-negotiable." },
+  1: { label: "Medical wishes", text: "Quality over duration. Wants realistic prognosis before any aggressive treatment. Comfort-focused care preferred." },
+  2: { label: "Living preferences", text: "Home-based care. Morning solitude is essential. Caregiver should feel like a neighbor, not an employee." },
+  3: { label: "Healthcare proxy", text: "David named as proxy. Has been prepared. Understands the wishes and will act without guilt." },
+  4: { label: "Legacy", text: "Showed up for people. Music as private inner language. Values curiosity and stubborn hope." }
+};
+
+var unlockedDomains = {};
+var totalRevealed = 0;
+
+function selectDomain(index) {
+  // Update sidebar buttons
+  for (var i = 0; i < 5; i++) {
+    document.getElementById('domain-btn-' + i).classList.remove('active');
+    document.getElementById('panel-' + i).classList.remove('active');
+  }
+  document.getElementById('domain-btn-' + index).classList.add('active');
+  document.getElementById('panel-' + index).classList.add('active');
+  currentDomain = index;
+}
+
+function revealAnswer(btn, domainIndex, questionIndex) {
+  var card = btn.parentElement;
+  var reveal = card.querySelector('.answer-reveal');
+  var isOpen = reveal.classList.contains('open');
+
+  if (isOpen) {
+    reveal.classList.remove('open');
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:15px;">visibility</span> See a sample answer';
+    btn.classList.remove('revealed');
+  } else {
+    reveal.classList.add('open');
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:15px;">visibility_off</span> Hide answer';
+    btn.classList.add('revealed');
+
+    // Unlock this domain's summary entry if not already done
+    if (!unlockedDomains[domainIndex]) {
+      unlockedDomains[domainIndex] = true;
+      addSummaryEntry(domainIndex);
+      totalRevealed++;
+    }
+
+    // Show CTA after 2 reveals
+    if (totalRevealed >= 2) {
+      document.getElementById('summary-cta').style.display = 'block';
+    }
+  }
+}
+
+function addSummaryEntry(domainIndex) {
+  var emptyEl = document.getElementById('summary-empty');
+  if (emptyEl) emptyEl.style.display = 'none';
+
+  var data = summaryData[domainIndex];
+  var container = document.getElementById('summary-entries');
+
+  var entry = document.createElement('div');
+  entry.className = 'summary-entry';
+  entry.id = 'summary-entry-' + domainIndex;
+
+  var iconColors = ['#a8d38a', '#fc6451', '#2d5016', '#a8d38a', '#173901'];
+  var iconNames = ['favorite', 'medical_services', 'home', 'record_voice_over', 'auto_stories'];
+
+  entry.innerHTML =
+    '<span class="material-symbols-outlined" style="font-size:16px;color:' + iconColors[domainIndex] + ';flex-shrink:0;margin-top:1px;">' + iconNames[domainIndex] + '</span>' +
+    '<div>' +
+      '<div style="font-family:Inter,sans-serif;font-size:11px;font-weight:700;color:#73796c;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;">' + data.label + '</div>' +
+      '<p style="font-family:Inter,sans-serif;font-size:12px;color:#1c1b1b;line-height:1.6;">' + data.text + '</p>' +
+    '</div>';
+
+  container.appendChild(entry);
+
+  // Animate in
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      entry.classList.add('visible');
+    });
+  });
+}
+</script>
 </body>
 </html>
