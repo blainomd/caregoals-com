@@ -4,8 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Start with Sage — CareGoals</title>
-<meta name="description" content="Start your care planning conversation with Sage. Free, private, 20 minutes."/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="description" content="Begin your care planning conversation with Sage. Free, private, and takes about 20 minutes."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -15,13 +14,27 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-container-low": "#f6f3f2","surface-bright": "#fcf9f8","surface": "#fcf9f8",
-        "surface-container-highest": "#e5e2e1","background": "#fcf9f8","on-primary-container": "#98c27b",
-        "secondary": "#b02d21","secondary-container": "#fc6451","outline": "#73796c",
-        "on-surface-variant": "#43493d","surface-container-high": "#eae7e7","surface-container": "#f0eded",
-        "primary-container": "#2d5016","on-secondary": "#ffffff","on-primary": "#ffffff",
-        "on-surface": "#1c1b1b","outline-variant": "#c3c9b9","primary": "#173901",
-        "inverse-surface": "#313030","inverse-primary": "#a8d38a","on-background": "#1c1b1b"
+        "surface-container-low": "#f6f3f2",
+        "surface-bright": "#fcf9f8",
+        "surface": "#fcf9f8",
+        "surface-container-highest": "#e5e2e1",
+        "background": "#fcf9f8",
+        "on-primary-container": "#98c27b",
+        "secondary": "#b02d21",
+        "secondary-container": "#fc6451",
+        "outline": "#73796c",
+        "on-surface-variant": "#43493d",
+        "surface-container-high": "#eae7e7",
+        "surface-container": "#f0eded",
+        "primary-container": "#2d5016",
+        "on-secondary": "#ffffff",
+        "on-primary": "#ffffff",
+        "on-surface": "#1c1b1b",
+        "outline-variant": "#c3c9b9",
+        "primary": "#173901",
+        "inverse-surface": "#313030",
+        "inverse-primary": "#a8d38a",
+        "on-background": "#1c1b1b"
       },
       borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
       fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
@@ -32,152 +45,232 @@ tailwind.config = {
 <style>
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   body { min-height: 100dvh; }
+  .plan-card { cursor: pointer; transition: all 0.15s ease; border: 2px solid #e5e2e1; }
+  .plan-card:hover { border-color: #173901; background: #f6f3f2; }
+  .plan-card.selected { border-color: #173901; background: #f0eded; }
+  .plan-card.selected .card-check { opacity: 1; }
+  .card-check { opacity: 0; transition: opacity 0.15s ease; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-body">
 
 <header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(252,249,248,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(115,121,108,0.12);">
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:60px;">
+  <div class="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between" style="height:60px;">
     <a href="/" class="font-extrabold text-lg tracking-tight text-primary" style="text-decoration:none;">CareGoals</a>
     <nav class="hidden md:flex items-center gap-7">
-      <a href="conversation.html" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">Conversations</a>
-      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">Features</a>
-      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">co-op.care</a>
+      <a href="conversation.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Conversations</a>
+      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Features</a>
+      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">co-op.care</a>
     </nav>
   </div>
 </header>
 <div style="height:60px;"></div>
 
-<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);" class="px-6 py-12">
-  <div class="max-w-3xl mx-auto text-center">
-    <div class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(168,211,138,0.7);">CareGoals</div>
-    <h1 class="text-white text-3xl md:text-4xl font-extrabold tracking-tight mb-3">Let's start your care planning</h1>
-    <p style="color:rgba(255,255,255,0.7);" class="text-base max-w-xl mx-auto">Sage will guide you through the whole thing. Free, private, and takes about 20 minutes.</p>
+<!-- Hero -->
+<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);padding:56px 24px 64px;">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <!-- Step indicator -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:32px;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;background:#fc6451;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:800;color:#fff;">1</span>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#fff;">Who is this for?</span>
+      </div>
+      <div style="width:32px;height:1px;background:rgba(255,255,255,0.25);"></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:800;color:rgba(255,255,255,0.6);">2</span>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);">About you</span>
+      </div>
+      <div style="width:32px;height:1px;background:rgba(255,255,255,0.25);"></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:800;color:rgba(255,255,255,0.6);">3</span>
+        </div>
+        <span style="font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);">Begin with Sage</span>
+      </div>
+    </div>
+    <h1 style="font-family:'Inter',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:12px;">Let's start your care planning</h1>
+    <p style="font-family:'Inter',sans-serif;font-size:17px;color:rgba(255,255,255,0.75);line-height:1.6;">Step 1 of 3 — Tell Sage who this plan is for.</p>
   </div>
 </section>
 
-<!-- Step indicator -->
-<div class="max-w-2xl mx-auto px-6 py-8">
-  <div class="flex items-center gap-3 mb-8">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background:#173901;">1</div>
-      <span class="text-sm font-bold text-on-surface">Who is this for?</span>
-    </div>
-    <div class="flex-1 h-0.5 bg-outline-variant"></div>
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 border-outline-variant text-outline">2</div>
-      <span class="text-sm text-on-surface-variant">Your preferences</span>
-    </div>
-    <div class="flex-1 h-0.5 bg-outline-variant"></div>
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 border-outline-variant text-outline">3</div>
-      <span class="text-sm text-on-surface-variant">Your summary</span>
-    </div>
-  </div>
+<!-- Main content -->
+<section style="padding:56px 24px 80px;background:#fcf9f8;">
+  <div style="max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start;" class="lg:grid-cols-[1fr_340px] grid-cols-1">
 
-  <!-- Step 1 card -->
-  <div class="bg-white rounded-2xl border border-outline-variant/40 p-8 mb-6">
-    <h2 class="text-xl font-extrabold text-on-surface mb-2">Who is this plan for?</h2>
-    <p class="text-sm text-on-surface-variant mb-6">Sage will personalize the conversation based on your answer.</p>
+    <!-- Left: Step 1 form -->
+    <div>
+      <h2 style="font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#1c1b1b;margin-bottom:8px;">Who is this plan for?</h2>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;margin-bottom:32px;line-height:1.6;">Sage will adjust the conversation based on your answer. There's no wrong choice — you can always change this later.</p>
 
-    <div class="grid sm:grid-cols-2 gap-4">
-      <button class="p-6 rounded-2xl border-2 border-primary text-left group hover:bg-primary hover:text-white transition-colors" style="cursor:pointer;">
-        <span class="material-symbols-outlined text-2xl mb-3 block text-primary group-hover:text-white">person</span>
-        <div class="font-bold text-sm text-on-surface group-hover:text-white mb-1">For myself</div>
-        <div class="text-xs text-on-surface-variant group-hover:text-white/80 leading-relaxed">I want to document my own values, preferences, and wishes.</div>
+      <!-- Choice cards -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px;" class="sm:grid-cols-2 grid-cols-1">
+
+        <div class="plan-card" id="card-self" onclick="selectCard('self')" style="background:#fff;border-radius:16px;padding:28px;position:relative;">
+          <div class="card-check" style="position:absolute;top:16px;right:16px;">
+            <span class="material-symbols-outlined" style="color:#173901;font-size:20px;">check_circle</span>
+          </div>
+          <div style="width:52px;height:52px;background:#f0eded;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <span class="material-symbols-outlined" style="color:#173901;font-size:24px;">person</span>
+          </div>
+          <h3 style="font-family:'Inter',sans-serif;font-size:17px;font-weight:800;color:#1c1b1b;margin-bottom:8px;">For myself</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;line-height:1.6;">I want to document my own values, preferences, and wishes. Any age, any health status — it's never too early to plan.</p>
+        </div>
+
+        <div class="plan-card" id="card-family" onclick="selectCard('family')" style="background:#fff;border-radius:16px;padding:28px;position:relative;">
+          <div class="card-check" style="position:absolute;top:16px;right:16px;">
+            <span class="material-symbols-outlined" style="color:#173901;font-size:20px;">check_circle</span>
+          </div>
+          <div style="width:52px;height:52px;background:#f0eded;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <span class="material-symbols-outlined" style="color:#173901;font-size:24px;">family_restroom</span>
+          </div>
+          <h3 style="font-family:'Inter',sans-serif;font-size:17px;font-weight:800;color:#1c1b1b;margin-bottom:8px;">For a family member</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;line-height:1.6;">I'm helping a parent, spouse, or other loved one document their wishes — with them present, or to share with them later.</p>
+        </div>
+
+      </div>
+
+      <!-- Sage note -->
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;margin-bottom:40px;">
+        <div style="width:40px;height:40px;background:#173901;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:18px;">smart_toy</span>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:#173901;margin-bottom:4px;">About Sage</div>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;line-height:1.7;">Sage is an AI. It will ask you questions, remember your answers, and never judge. It moves at your pace — you can stop anytime and come back later. Everything you share is private and encrypted. Sage does not give medical advice.</p>
+        </div>
+      </div>
+
+      <!-- Begin button -->
+      <button onclick="beginWithSage()" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:17px;font-weight:800;padding:18px 32px;border-radius:100px;border:none;cursor:pointer;">
+        Begin with Sage
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
       </button>
-      <button class="p-6 rounded-2xl border-2 border-outline-variant text-left group hover:border-primary transition-colors" style="cursor:pointer;">
-        <span class="material-symbols-outlined text-2xl mb-3 block text-outline group-hover:text-primary">family_restroom</span>
-        <div class="font-bold text-sm text-on-surface mb-1">For a family member</div>
-        <div class="text-xs text-on-surface-variant leading-relaxed">I'm helping a parent or loved one document their wishes.</div>
-      </button>
-    </div>
-  </div>
 
-  <!-- What to expect -->
-  <div class="bg-surface-container-low rounded-2xl p-6 mb-6">
-    <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">What to expect</div>
-    <div class="space-y-3">
-      <div class="flex gap-3 items-center">
-        <span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">schedule</span>
-        <span class="text-sm text-on-surface-variant">Takes about 20 minutes for the first session</span>
-      </div>
-      <div class="flex gap-3 items-center">
-        <span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">lock</span>
-        <span class="text-sm text-on-surface-variant">Your information is private and encrypted</span>
-      </div>
-      <div class="flex gap-3 items-center">
-        <span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">savings</span>
-        <span class="text-sm text-on-surface-variant">Free — no credit card, no account required</span>
-      </div>
-      <div class="flex gap-3 items-center">
-        <span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">edit_note</span>
-        <span class="text-sm text-on-surface-variant">Nothing is final — everything can be updated</span>
-      </div>
+      <p style="font-family:'Inter',sans-serif;font-size:13px;color:#73796c;text-align:center;margin-top:16px;">
+        Already have an account?
+        <a href="#" style="color:#173901;font-weight:600;text-decoration:none;">Sign in</a>
+      </p>
     </div>
-  </div>
 
-  <!-- Sage note -->
-  <div class="bg-surface-container rounded-2xl p-6 mb-8 border-l-4" style="border-left-color:#173901;">
-    <div class="flex gap-3 items-start">
-      <div class="w-10 h-10 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-        <span class="material-symbols-outlined text-lg">psychology</span>
+    <!-- Right: What to expect sidebar -->
+    <div style="position:sticky;top:80px;">
+      <div style="background:#173901;border-radius:16px;padding:28px;margin-bottom:20px;">
+        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:20px;">What to expect</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <span class="material-symbols-outlined" style="color:#a8d38a;font-size:18px;flex-shrink:0;margin-top:1px;">timer</span>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">About 20 minutes</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;">First session covers values and medical preferences. You can stop and come back anytime.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <span class="material-symbols-outlined" style="color:#a8d38a;font-size:18px;flex-shrink:0;margin-top:1px;">lock</span>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">Completely private</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;">HIPAA-compliant. End-to-end encrypted. Never sold. You control who sees your summary.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <span class="material-symbols-outlined" style="color:#a8d38a;font-size:18px;flex-shrink:0;margin-top:1px;">payments</span>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">Free to start</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;">No credit card required. Your first session and care summary are always free.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;">
+            <span class="material-symbols-outlined" style="color:#a8d38a;font-size:18px;flex-shrink:0;margin-top:1px;">description</span>
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;">Saved to your account</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;">Your Care Summary is generated after the session. Share it with family or your care team anytime.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="font-bold text-sm text-on-surface mb-1">About Sage</div>
-        <p class="text-xs text-on-surface-variant leading-relaxed">Sage is an AI. It will ask you questions, listen to your answers, and never judge. It's not a medical advisor — it's a structured guide for a conversation most families never have. Everything you share is private.</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- CTA -->
-  <div class="text-center">
-    <button class="inline-flex items-center gap-2 font-bold text-base px-10 py-4 rounded-full text-white" style="background:#fc6451;cursor:pointer;">
-      Begin with Sage
-      <span class="material-symbols-outlined text-lg">arrow_forward</span>
-    </button>
-    <div class="mt-4 text-sm text-on-surface-variant">
-      Already have an account? <a href="#" class="font-medium text-primary" style="text-decoration:none;">Sign in →</a>
-    </div>
-  </div>
-</div>
-
-<!-- Reassurance strip -->
-<div class="bg-surface-container-low border-t border-outline-variant/20 py-10">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="grid sm:grid-cols-3 gap-6 text-center">
-      <div>
-        <span class="material-symbols-outlined text-2xl mb-2 block" style="color:#173901;">verified_user</span>
-        <div class="font-bold text-sm text-on-surface mb-1">Physician-reviewed</div>
-        <div class="text-xs text-on-surface-variant">Your care summary is reviewed by a licensed physician before it's finalized.</div>
-      </div>
-      <div>
-        <span class="material-symbols-outlined text-2xl mb-2 block" style="color:#173901;">lock</span>
-        <div class="font-bold text-sm text-on-surface mb-1">HIPAA-compliant</div>
-        <div class="text-xs text-on-surface-variant">End-to-end encrypted. Never sold. Never shared without your permission.</div>
-      </div>
-      <div>
-        <span class="material-symbols-outlined text-2xl mb-2 block" style="color:#173901;">favorite</span>
-        <div class="font-bold text-sm text-on-surface mb-1">Built with co-op.care</div>
-        <div class="text-xs text-on-surface-variant">CareGoals is a co-op.care product. Worker-owned, family-centered care.</div>
+      <!-- Trust indicators -->
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px;">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:12px;">Used by families who</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#2d5016;font-size:16px;">check</span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;">Want to avoid family conflict</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#2d5016;font-size:16px;">check</span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;">Have a parent who won't start the conversation</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#2d5016;font-size:16px;">check</span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;">Want their wishes documented before a crisis</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="material-symbols-outlined" style="color:#2d5016;font-size:16px;">check</span>
+            <span style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;">Are starting to need more care at home</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,0.08);">
+  </div>
+</section>
+
+<script>
+  let selected = null;
+
+  function selectCard(type) {
+    selected = type;
+    document.getElementById('card-self').classList.remove('selected');
+    document.getElementById('card-family').classList.remove('selected');
+    document.getElementById('card-' + type).classList.add('selected');
+  }
+
+  function beginWithSage() {
+    if (!selected) {
+      // Gently prompt the user to select
+      document.getElementById('card-self').style.borderColor = '#fc6451';
+      document.getElementById('card-family').style.borderColor = '#fc6451';
+      setTimeout(() => {
+        document.getElementById('card-self').style.borderColor = '';
+        document.getElementById('card-family').style.borderColor = '';
+      }, 1200);
+      return;
+    }
+    // In a real implementation, this would proceed to Step 2
+    // For demo purposes, show a confirmation state
+    const btn = event.currentTarget;
+    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">check_circle</span><span style="font-family:\'Inter\',sans-serif;font-size:17px;font-weight:800;">Starting your session...</span>';
+    btn.style.background = '#2d5016';
+    btn.disabled = true;
+  }
+</script>
+
+<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;margin-top:0;">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;">
-      <div><div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided advance care planning. A co-op.care product.</p></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided care planning conversations. A co-op.care product.</p>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
         <a href="conversation.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Conversations</a>
-        <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
+        <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a>
+        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
         <a href="features.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Features</a>
-        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Stories</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
-        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a></div>
+        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Gallery</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
+        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a>
+      </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <span style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);">© 2026 CareGoals · A co-op.care product</span>

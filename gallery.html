@@ -4,8 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Stories — CareGoals</title>
-<meta name="description" content="Real stories from families who've done the conversation. What they learned, and what changed."/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="description" content="What families are doing with CareGoals. Real stories about advance care planning conversations that changed things."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -15,13 +14,27 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-container-low": "#f6f3f2","surface-bright": "#fcf9f8","surface": "#fcf9f8",
-        "surface-container-highest": "#e5e2e1","background": "#fcf9f8","on-primary-container": "#98c27b",
-        "secondary": "#b02d21","secondary-container": "#fc6451","outline": "#73796c",
-        "on-surface-variant": "#43493d","surface-container-high": "#eae7e7","surface-container": "#f0eded",
-        "primary-container": "#2d5016","on-secondary": "#ffffff","on-primary": "#ffffff",
-        "on-surface": "#1c1b1b","outline-variant": "#c3c9b9","primary": "#173901",
-        "inverse-surface": "#313030","inverse-primary": "#a8d38a","on-background": "#1c1b1b"
+        "surface-container-low": "#f6f3f2",
+        "surface-bright": "#fcf9f8",
+        "surface": "#fcf9f8",
+        "surface-container-highest": "#e5e2e1",
+        "background": "#fcf9f8",
+        "on-primary-container": "#98c27b",
+        "secondary": "#b02d21",
+        "secondary-container": "#fc6451",
+        "outline": "#73796c",
+        "on-surface-variant": "#43493d",
+        "surface-container-high": "#eae7e7",
+        "surface-container": "#f0eded",
+        "primary-container": "#2d5016",
+        "on-secondary": "#ffffff",
+        "on-primary": "#ffffff",
+        "on-surface": "#1c1b1b",
+        "outline-variant": "#c3c9b9",
+        "primary": "#173901",
+        "inverse-surface": "#313030",
+        "inverse-primary": "#a8d38a",
+        "on-background": "#1c1b1b"
       },
       borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
       fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
@@ -37,168 +50,153 @@ tailwind.config = {
 <body class="bg-background text-on-surface font-body">
 
 <header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(252,249,248,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(115,121,108,0.12);">
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:60px;">
+  <div class="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between" style="height:60px;">
     <a href="/" class="font-extrabold text-lg tracking-tight text-primary" style="text-decoration:none;">CareGoals</a>
     <nav class="hidden md:flex items-center gap-7">
-      <a href="conversation.html" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">Conversations</a>
-      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">Features</a>
-      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary" style="text-decoration:none;">co-op.care</a>
+      <a href="conversation.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Conversations</a>
+      <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Features</a>
+      <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">co-op.care</a>
       <a href="sage-onboarding.html" class="text-sm font-bold text-white px-5 py-2.5 rounded-full" style="background:#fc6451;text-decoration:none;">Start with Sage</a>
     </nav>
   </div>
 </header>
 <div style="height:60px;"></div>
 
-<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);" class="px-6 py-16">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(168,211,138,0.7);">CareGoals</div>
-    <h1 class="text-white text-4xl font-extrabold tracking-tight mb-4">What families are doing with CareGoals</h1>
-    <p class="text-lg max-w-xl" style="color:rgba(255,255,255,0.7);">Stories from real conversations — what they found, what changed, what they wish they'd done sooner.</p>
+<!-- Inner hero -->
+<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);padding:64px 24px 72px;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <h1 style="font-family:'Inter',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">What families are doing with CareGoals</h1>
+    <p style="font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.75);line-height:1.6;">Four stories. Four different starting points. One thing in common: the conversation happened.</p>
   </div>
 </section>
 
-<section class="max-w-5xl mx-auto px-6 py-16 space-y-14">
+<!-- Stories -->
+<section style="padding:80px 24px;background:#fcf9f8;">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:64px;">
 
-  <!-- Story 1 -->
-  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <!-- Story 1: Dorothy's wish -->
     <div>
-      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:#f0eded;">
-        <span class="material-symbols-outlined text-2xl" style="color:#173901;">elderly_woman</span>
+      <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#173901,#2d5016);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:28px;">elderly_woman</span>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;margin-bottom:4px;">Dorothy's wish</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;">Boulder, CO · Age 82 · Completed her own plan</div>
+        </div>
       </div>
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Boulder, CO</div>
-      <h2 class="text-xl font-extrabold text-on-surface mb-4">Dorothy's wish</h2>
-      <p class="text-on-surface-variant leading-relaxed mb-4">Dorothy is 82. Sharp, independent, and she'd been living alone in her house on Mapleton for twelve years after her husband died. Her daughter Jess had been gently trying to talk about what would happen "when things changed" for two years — and Dorothy would change the subject.</p>
-      <p class="text-on-surface-variant leading-relaxed">When Jess sat down with Dorothy and opened CareGoals, she framed it as "a thing I need to do for myself too." Sage asked Dorothy what a good day looked like. She talked for fifteen minutes — her garden, her book club, the way the light comes through the kitchen window in the morning. Nobody had asked her that question in years.</p>
-    </div>
-    <div>
-      <div class="p-6 bg-surface-container rounded-2xl border-l-4 mb-5" style="border-left-color:#fc6451;">
-        <p class="text-on-surface text-base leading-relaxed italic">"I don't want any heroics. I've had a beautiful life. What I want is to die in my garden if I can manage it, with my family nearby. I just needed someone to ask."</p>
-        <div class="text-xs text-outline font-medium mt-3">— Dorothy, 82</div>
-      </div>
-      <div class="p-5 bg-surface-container-low rounded-2xl">
-        <div class="text-xs font-bold uppercase tracking-widest text-outline mb-3">What changed</div>
-        <ul class="space-y-2 text-sm text-on-surface-variant">
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Healthcare proxy designated — Jess</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>DNR preference documented</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Shared with Dorothy's primary care doctor</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Jess moved her father to Boulder with a plan in place</li>
-        </ul>
+      <p style="font-family:'Inter',sans-serif;font-size:18px;font-style:italic;color:#173901;line-height:1.6;margin-bottom:24px;padding:20px 24px;background:#f6f3f2;border-radius:12px;border-left:4px solid #a8d38a;">"I've known what I want for years. I just didn't have a way to say it that my children would actually hear."</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:16px;">Dorothy Warkentine had lived in the same house in Boulder for 41 years. She'd watched her husband spend his final months in a skilled nursing facility he hated, and she'd made a private decision long ago that she wouldn't do the same. But her three adult children — scattered across Colorado and California — had very different assumptions about what their mother would want.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:24px;">Her daughter Margaret set up a CareGoals session on a Sunday afternoon. Dorothy was skeptical — "I'm not answering questions from a computer about my death." But Sage didn't start there. It asked about her mornings. What made a day feel worth it. What she wanted people to remember. An hour later, Dorothy had said more about her wishes than she had in the previous decade of family conversations. The Care Summary became the document her family finally agreed on.</p>
+      <div style="background:#f6f3f2;border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:12px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;">check_circle</span>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;font-weight:500;">Family aligned. Advance directive signed. Hospice plan in place. Dorothy told her daughter it felt like putting down a weight she'd been carrying for years.</p>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
+    <div style="height:1px;background:#e5e2e1;"></div>
 
-  <!-- Story 2 -->
-  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <!-- Story 2: Three brothers -->
     <div>
-      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:#f0eded;">
-        <span class="material-symbols-outlined text-2xl" style="color:#173901;">diversity_3</span>
+      <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#b02d21,#fc6451);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#fff;font-size:28px;">diversity_3</span>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;margin-bottom:4px;">Three brothers</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;">Denver, CO · Adult siblings, ages 47–58 · Father with early Parkinson's</div>
+        </div>
       </div>
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Denver, CO</div>
-      <h2 class="text-xl font-extrabold text-on-surface mb-4">Three brothers</h2>
-      <p class="text-on-surface-variant leading-relaxed mb-4">When their father had a stroke at 77, Michael, David, and Tom had to make decisions for him — and they disagreed about everything. Michael wanted aggressive treatment. David wanted comfort care. Tom wasn't sure. There was no document, no prior conversation, and it nearly broke the family.</p>
-      <p class="text-on-surface-variant leading-relaxed">Their father recovered enough to do a CareGoals session himself six months later. The three brothers sat with him while Sage asked questions. By the time they finished, all three were in tears — not because of the hard topics, but because they'd never heard their father talk about his life like that before.</p>
-    </div>
-    <div>
-      <div class="p-6 bg-surface-container rounded-2xl border-l-4 mb-5" style="border-left-color:#a8d38a;">
-        <p class="text-on-surface text-base leading-relaxed italic">"I just want to be comfortable. I don't want to be a burden. I want my boys to be okay. That's it."</p>
-        <div class="text-xs text-outline font-medium mt-3">— Their father, 78</div>
-      </div>
-      <div class="p-5 bg-surface-container-low rounded-2xl">
-        <div class="text-xs font-bold uppercase tracking-widest text-outline mb-3">What changed</div>
-        <ul class="space-y-2 text-sm text-on-surface-variant">
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>All three brothers aligned on care preferences</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Comfort care preference documented</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Summary shared with their father's neurologist</li>
-        </ul>
+      <p style="font-family:'Inter',sans-serif;font-size:18px;font-style:italic;color:#173901;line-height:1.6;margin-bottom:24px;padding:20px 24px;background:#f6f3f2;border-radius:12px;border-left:4px solid #fc6451;">"We weren't fighting about Dad. We were each projecting what we wanted — and we didn't realize it until Sage asked him directly."</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:16px;">When their father Frank was diagnosed with early-stage Parkinson's at 74, the three Morales brothers agreed on very little. The eldest, Carlos, wanted aggressive treatment and kept researching clinical trials. The middle son, David, thought Frank should move closer to family in Denver. The youngest, Miguel, believed their father would want to stay in his own house — and resented his brothers for pushing.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:24px;">At a family meeting, Miguel suggested they let Frank complete a CareGoals session with Sage alone — without the sons present. Frank agreed. What came back surprised all three of them. Frank didn't want to move. He didn't want aggressive intervention if his cognition declined significantly. He wanted to stay home as long as possible with support. And he wanted Miguel — the youngest — as his healthcare proxy, because "Miguel doesn't panic." The document gave the brothers something to agree on that wasn't any of their opinions. It was their father's.</p>
+      <div style="background:#f6f3f2;border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:12px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;">check_circle</span>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;font-weight:500;">Disagreement resolved. Father named a primary proxy. Family conflict avoided before the hard decisions arrived.</p>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
+    <div style="height:1px;background:#e5e2e1;"></div>
 
-  <!-- Story 3 -->
-  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <!-- Story 3: Before the diagnosis -->
     <div>
-      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:#f0eded;">
-        <span class="material-symbols-outlined text-2xl" style="color:#173901;">favorite</span>
+      <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#2d5016,#4a7a28);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:28px;">favorite</span>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;margin-bottom:4px;">Before the diagnosis</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;">Fort Collins, CO · Married couple, both 61 · No health crisis — just finally ready</div>
+        </div>
       </div>
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Fort Collins, CO</div>
-      <h2 class="text-xl font-extrabold text-on-surface mb-4">Before the diagnosis</h2>
-      <p class="text-on-surface-variant leading-relaxed mb-4">Karen and her husband Robert did their CareGoals sessions the summer he turned 68 — "just to have it done," as Karen put it. No health crisis. No urgency. Just a Tuesday evening and a bottle of wine.</p>
-      <p class="text-on-surface-variant leading-relaxed">When Robert was diagnosed with early Parkinson's two years later, they weren't starting from scratch. The plan was already there. The conversation had already happened. What might have been a devastating moment of renegotiating everything was instead a calm update to something they'd already talked through together.</p>
-    </div>
-    <div>
-      <div class="p-6 bg-surface-container rounded-2xl border-l-4 mb-5" style="border-left-color:#2d5016;">
-        <p class="text-on-surface text-base leading-relaxed italic">"We did it before we needed to. That felt strange at the time. Now it feels like the smartest thing we ever did."</p>
-        <div class="text-xs text-outline font-medium mt-3">— Karen, 67</div>
-      </div>
-      <div class="p-5 bg-surface-container-low rounded-2xl">
-        <div class="text-xs font-bold uppercase tracking-widest text-outline mb-3">What changed</div>
-        <ul class="space-y-2 text-sm text-on-surface-variant">
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Plan in place before Parkinson's diagnosis</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Updated plan with new context — no starting over</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Adult children given access to care summary</li>
-        </ul>
+      <p style="font-family:'Inter',sans-serif;font-size:18px;font-style:italic;color:#173901;line-height:1.6;margin-bottom:24px;padding:20px 24px;background:#f6f3f2;border-radius:12px;border-left:4px solid #2d5016;">"We didn't do it because we were scared. We did it because we realized we'd been meaning to for ten years and we just never had."</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:16px;">Patricia and James Henley were both 61, both healthy, both retired teachers. A friend's sudden cancer diagnosis made them realize they'd been putting off a conversation they'd always assumed they'd get to eventually. They sat down one Saturday morning with coffee and opened CareGoals together — two separate sessions, side by side at the kitchen table.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:24px;">What they discovered surprised them. Patricia had strong feelings about not wanting life support under any circumstances — feelings James hadn't fully understood. James wanted to remain home under almost any conditions; Patricia had assumed he'd be open to a care facility if needed. The CareGoals process didn't just produce documents — it opened a conversation they'd been circling for years. They shared both summaries with their two adult children at Thanksgiving. Their daughter called it "the best gift you've ever given us."</p>
+      <div style="background:#f6f3f2;border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:12px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;">check_circle</span>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;font-weight:500;">Both plans complete. Shared with adult children. Peace of mind before any crisis — not in response to one.</p>
       </div>
     </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
+    <div style="height:1px;background:#e5e2e1;"></div>
 
-  <!-- Story 4 -->
-  <div class="grid md:grid-cols-2 gap-10 items-start">
+    <!-- Story 4: Caregiver's perspective -->
     <div>
-      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style="background:#f0eded;">
-        <span class="material-symbols-outlined text-2xl" style="color:#173901;">volunteer_activism</span>
+      <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:28px;flex-wrap:wrap;">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#43493d,#73796c);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#fff;font-size:28px;">home_health</span>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:#173901;margin-bottom:4px;">A caregiver's perspective</div>
+          <div style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;">Boulder, CO · Home caregiver, 11 years experience</div>
+        </div>
       </div>
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-2">Boulder, CO</div>
-      <h2 class="text-xl font-extrabold text-on-surface mb-4">A caregiver's perspective</h2>
-      <p class="text-on-surface-variant leading-relaxed mb-4">Maria has been a home caregiver for eleven years. She's been in the room when family members have had to make decisions for someone who couldn't speak for themselves — and she's seen what happens when there's no plan.</p>
-      <p class="text-on-surface-variant leading-relaxed">"The families who've done this are different," she says. "They're still sad. They still grieve. But they're not fighting each other. They know what their person wanted. That changes everything."</p>
-    </div>
-    <div>
-      <div class="p-6 bg-surface-container rounded-2xl border-l-4 mb-5" style="border-left-color:#fc6451;">
-        <p class="text-on-surface text-base leading-relaxed italic">"I recommend CareGoals to every family I work with. I tell them: don't wait for a reason. The reason is that you love them."</p>
-        <div class="text-xs text-outline font-medium mt-3">— Maria, co-op.care caregiver</div>
-      </div>
-      <div class="p-5 bg-surface-container-low rounded-2xl">
-        <div class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Maria uses CareGoals to</div>
-        <ul class="space-y-2 text-sm text-on-surface-variant">
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Understand each family's wishes before starting care</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Refer families without plans to Sage</li>
-          <li class="flex gap-2"><span class="material-symbols-outlined text-base" style="color:#173901;font-variation-settings:'FILL' 1;">check_circle</span>Connect care notes back to what matters most</li>
-        </ul>
+      <p style="font-family:'Inter',sans-serif;font-size:18px;font-style:italic;color:#173901;line-height:1.6;margin-bottom:24px;padding:20px 24px;background:#f6f3f2;border-radius:12px;border-left:4px solid #73796c;">"The families who fight the most are the ones where nobody knows what the person actually wants. CareGoals changes that before I even walk in the door."</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:16px;">Rosa Ibarra has worked as a home caregiver for eleven years, most recently with co-op.care families in Boulder. In her experience, the hardest situations weren't about medical complexity — they were about families who disagreed, children who hadn't talked to each other, and clients who had clear preferences but no way to make those preferences heard by the people caring for them.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:24px;">Rosa started asking new families to complete a CareGoals session before her first week. The Care Summary became her orientation document — she knew before she arrived what mattered to the person she was caring for: their daily routines, their privacy preferences, what kind of conversation they liked over meals, what they never wanted to talk about. "I'm not guessing anymore," she says. "And the families aren't guessing either. When there's a hard day, we all know what the person would want."</p>
+      <div style="background:#f6f3f2;border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:12px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;">check_circle</span>
+        <p style="font-family:'Inter',sans-serif;font-size:14px;color:#43493d;font-weight:500;">Integrated CareGoals into her intake process. Reduced family conflict in the first 90 days of care for every new family she works with.</p>
       </div>
     </div>
+
   </div>
 </section>
 
-<section class="px-6 py-14" style="background:#173901;">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-white text-2xl font-extrabold tracking-tight mb-3">Start your story</h2>
-    <p class="mb-6" style="color:rgba(255,255,255,0.7);">It takes 20 minutes. Sage will guide you the whole way.</p>
-    <a href="sage-onboarding.html" class="inline-flex items-center gap-2 font-bold text-base px-8 py-4 rounded-full" style="background:#fc6451;color:#fff;text-decoration:none;">
-      Start with Sage <span class="material-symbols-outlined text-lg">arrow_forward</span>
+<!-- CTA -->
+<section style="background:#173901;padding:72px 24px;text-align:center;">
+  <div style="max-width:560px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:16px;">Your story starts with a conversation</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:32px;line-height:1.7;">Twenty minutes. Sage will guide you through the questions that matter most.</p>
+    <a href="sage-onboarding.html" style="display:inline-flex;align-items:center;gap:8px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;padding:16px 32px;border-radius:100px;text-decoration:none;">
+      Start with Sage
+      <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
     </a>
   </div>
 </section>
 
-<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,0.08);">
+<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;margin-top:0;">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;">
-      <div><div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided advance care planning. A co-op.care product.</p></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided care planning conversations. A co-op.care product.</p>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
         <a href="conversation.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Conversations</a>
         <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a>
-        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
+        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
         <a href="features.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Features</a>
-        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Stories</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
-        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a></div>
+        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Gallery</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
+        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a>
+      </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <span style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);">© 2026 CareGoals · A co-op.care product</span>

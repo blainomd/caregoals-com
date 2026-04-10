@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Conversations — CareGoals</title>
-<meta name="description" content="CareGoals covers five conversation domains: what matters most, medical decisions, living preferences, who decides, and legacy."/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Conversations — CareGoals</title>
+<meta name="description" content="Learn what CareGoals conversations cover — values, medical decisions, who decides, living preferences, and legacy."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -15,13 +14,27 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-container-low": "#f6f3f2","surface-bright": "#fcf9f8","surface": "#fcf9f8",
-        "surface-container-highest": "#e5e2e1","background": "#fcf9f8","on-primary-container": "#98c27b",
-        "secondary": "#b02d21","secondary-container": "#fc6451","outline": "#73796c",
-        "on-surface-variant": "#43493d","surface-container-high": "#eae7e7","surface-container": "#f0eded",
-        "primary-container": "#2d5016","on-secondary": "#ffffff","on-primary": "#ffffff",
-        "on-surface": "#1c1b1b","outline-variant": "#c3c9b9","primary": "#173901",
-        "inverse-surface": "#313030","inverse-primary": "#a8d38a","on-background": "#1c1b1b"
+        "surface-container-low": "#f6f3f2",
+        "surface-bright": "#fcf9f8",
+        "surface": "#fcf9f8",
+        "surface-container-highest": "#e5e2e1",
+        "background": "#fcf9f8",
+        "on-primary-container": "#98c27b",
+        "secondary": "#b02d21",
+        "secondary-container": "#fc6451",
+        "outline": "#73796c",
+        "on-surface-variant": "#43493d",
+        "surface-container-high": "#eae7e7",
+        "surface-container": "#f0eded",
+        "primary-container": "#2d5016",
+        "on-secondary": "#ffffff",
+        "on-primary": "#ffffff",
+        "on-surface": "#1c1b1b",
+        "outline-variant": "#c3c9b9",
+        "primary": "#173901",
+        "inverse-surface": "#313030",
+        "inverse-primary": "#a8d38a",
+        "on-background": "#1c1b1b"
       },
       borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
       fontFamily: { "headline": ["Inter"], "body": ["Inter"], "label": ["Inter"] }
@@ -37,10 +50,10 @@ tailwind.config = {
 <body class="bg-background text-on-surface font-body">
 
 <header class="fixed top-0 left-0 right-0 z-50" style="background:rgba(252,249,248,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(115,121,108,0.12);">
-  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between" style="height:60px;">
+  <div class="max-w-6xl mx-auto px-6 h-15 flex items-center justify-between" style="height:60px;">
     <a href="/" class="font-extrabold text-lg tracking-tight text-primary" style="text-decoration:none;">CareGoals</a>
     <nav class="hidden md:flex items-center gap-7">
-      <a href="conversation.html" class="text-sm font-bold text-primary" style="text-decoration:none;">Conversations</a>
+      <a href="conversation.html" class="text-sm font-medium text-primary" style="text-decoration:none;">Conversations</a>
       <a href="features.html" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">Features</a>
       <a href="https://co-op.care" class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" style="text-decoration:none;">co-op.care</a>
       <a href="sage-onboarding.html" class="text-sm font-bold text-white px-5 py-2.5 rounded-full" style="background:#fc6451;text-decoration:none;">Start with Sage</a>
@@ -49,178 +62,217 @@ tailwind.config = {
 </header>
 <div style="height:60px;"></div>
 
-<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);" class="px-6 py-16">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-xs font-bold uppercase tracking-widest mb-3" style="color:rgba(168,211,138,0.7);">CareGoals</div>
-    <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-tight mb-4">The conversations worth having</h1>
-    <p class="text-lg max-w-2xl" style="color:rgba(255,255,255,0.7);">Five domains. One at a time. Sage guides your family through each one.</p>
+<!-- Inner hero -->
+<section style="background:linear-gradient(135deg,#173901 0%,#2d5016 100%);padding:64px 24px 72px;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <h1 style="font-family:'Inter',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;">The conversations worth having</h1>
+    <p style="font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.75);line-height:1.6;">Five conversation domains. Each one designed to surface what matters most, not just what's legally required.</p>
   </div>
 </section>
 
-<section class="max-w-5xl mx-auto px-6 py-16 space-y-14">
+<!-- What CareGoals covers -->
+<section style="padding:80px 24px;background:#fcf9f8;">
+  <div style="max-width:900px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:48px;text-align:center;">What CareGoals covers</h2>
+    <div style="display:flex;flex-direction:column;gap:40px;">
 
-  <div class="grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-          <span class="material-symbols-outlined">favorite</span>
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
+        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">favorite</span>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-widest text-outline">Domain 1</div>
-          <h2 class="text-xl font-extrabold text-on-surface">What matters most</h2>
+          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">What matters most</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">Most advance care planning tools jump straight to medical preferences — do you want CPR? Ventilator support? But those questions land differently when they're grounded in values first.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">Sage starts by learning what a good life looks like for you. Independence. Dignity. Connection to family. Time outdoors. These answers shape everything that follows — and they give your family a richer understanding of who you are, not just what paperwork you've signed.</p>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-4">Before any medical question, Sage asks about values. What does a good day look like? What brings joy? What would make life feel not worth living? These answers shape everything else in the care plan.</p>
-      <p class="text-on-surface-variant text-sm leading-relaxed">Most advance care planning tools jump straight to CPR preferences. CareGoals starts with who you are — because medical decisions are downstream of that.</p>
-    </div>
-    <div class="bg-surface-container rounded-2xl p-6 space-y-3">
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Sample questions</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What does a good day look like for you right now?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What activities or relationships are most important to your quality of life?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What are you most afraid of losing as you get older?"</div>
-    </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
-
-  <div class="grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-          <span class="material-symbols-outlined">medical_services</span>
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
+        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">medical_services</span>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-widest text-outline">Domain 2</div>
-          <h2 class="text-xl font-extrabold text-on-surface">Medical decisions</h2>
+          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Medical decisions</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">CPR. Mechanical ventilation. Artificial nutrition. Hospitalization versus comfort care at home. These are the decisions that families face in emergency rooms and ICUs — often without any prior guidance.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">Sage walks through these questions gently, in plain language, framing each as a real choice rather than a bureaucratic checkbox. It also captures the reasoning behind the decision — "I don't want to be on a ventilator because I watched my father go through that" is more useful to a family than a checked box.</p>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-4">CPR, hospitalization, life support, tube feeding — doctors need these answered in a crisis. CareGoals helps you think through each one in a calm setting, not an ICU. Sage explains each option in plain language and captures nuance — not just yes/no boxes.</p>
-    </div>
-    <div class="bg-surface-container rounded-2xl p-6 space-y-3">
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Sample questions</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"If your heart stopped, would you want doctors to try to restart it?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"How long would you want a breathing machine used if you couldn't breathe on your own?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What matters more to you — length of life or quality of life?"</div>
-    </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
-
-  <div class="grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-          <span class="material-symbols-outlined">home</span>
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
+        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">home</span>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-widest text-outline">Domain 3</div>
-          <h2 class="text-xl font-extrabold text-on-surface">Living and care preferences</h2>
+          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Living and care preferences</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">Where do you want to live as you age? Home with support, an assisted living community, closer to family in another city? What does your daily routine matter to you? Who should be allowed to visit — and who shouldn't?</p>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">These aren't just nice-to-haves. When a parent can no longer speak for themselves, these answers prevent months of difficult family debate — and they allow caregivers to provide genuinely personalized care.</p>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-4">Where do you want to live as you age? Who do you want helping you? What daily routines matter? These practical preferences are often more important than medical ones — and rarely documented.</p>
-    </div>
-    <div class="bg-surface-container rounded-2xl p-6 space-y-3">
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Sample questions</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"Would you want to stay home even if it required significant support, or would a care facility be acceptable?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"Are there specific people you'd want — or not want — involved in your daily care?"</div>
-    </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
-
-  <div class="grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-          <span class="material-symbols-outlined">gavel</span>
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
+        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">person_check</span>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-widest text-outline">Domain 4</div>
-          <h2 class="text-xl font-extrabold text-on-surface">Who decides</h2>
+          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Who decides</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">A healthcare proxy is the person who speaks for you when you can't speak for yourself. A durable power of attorney handles financial decisions. These roles are among the most important designations in advance care planning — and they're often undone by conflict when they haven't been explicitly named.</p>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">CareGoals helps you think through who you trust most, what guidance you want to give them, and how to notify them so the designation doesn't come as a surprise.</p>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-4">If you can't speak for yourself, who speaks for you? CareGoals helps you designate a healthcare proxy, give them specific guidance, and make sure they know and accept the role — before any crisis.</p>
-    </div>
-    <div class="bg-surface-container rounded-2xl p-6 space-y-3">
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Sample questions</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"Who do you trust most to make hard decisions on your behalf?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What would you want that person to know before they ever had to use this?"</div>
-    </div>
-  </div>
 
-  <div class="border-t border-outline-variant/30"></div>
-
-  <div class="grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" style="background:#173901;">
-          <span class="material-symbols-outlined">auto_stories</span>
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:start;">
+        <div style="width:56px;height:56px;background:#173901;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="material-symbols-outlined" style="color:#a8d38a;font-size:26px;">auto_stories</span>
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-widest text-outline">Domain 5</div>
-          <h2 class="text-xl font-extrabold text-on-surface">Legacy and meaning</h2>
+          <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:#1c1b1b;margin-bottom:10px;">Legacy</h3>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;margin-bottom:10px;">What do you want people to remember about you? Are there stories from your life that your grandchildren don't know? Are there values you've tried to live by that you want to pass forward explicitly?</p>
+          <p style="font-family:'Inter',sans-serif;font-size:15px;color:#43493d;line-height:1.8;">This section is different from the others — it's not about decisions, it's about meaning. Families who complete this section often describe it as the most emotionally significant part. It turns a care planning document into something that endures.</p>
         </div>
       </div>
-      <p class="text-on-surface-variant leading-relaxed mb-4">What do you want people to remember about you? Are there stories your family should know? Is there something you want to say to the people you love? CareGoals gives you a place to capture it — and share it.</p>
-    </div>
-    <div class="bg-surface-container rounded-2xl p-6 space-y-3">
-      <div class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Sample questions</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"What's something about your life your family might not fully know or appreciate?"</div>
-      <div class="p-3 bg-white rounded-xl text-sm text-on-surface-variant italic">"If you could say one thing to each person you love, what would it be?"</div>
+
     </div>
   </div>
 </section>
 
-<section class="bg-surface-container-low py-14">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-10">
-      <h2 class="text-2xl font-extrabold tracking-tight text-on-surface mb-3">How Sage guides the conversation</h2>
-      <p class="text-on-surface-variant max-w-xl mx-auto">Sage is an AI guide — not a chatbot. It asks structured questions, listens, and builds a real document from your answers.</p>
-    </div>
-    <div class="grid sm:grid-cols-3 gap-5">
-      <div class="bg-white rounded-2xl p-6 text-center">
-        <span class="material-symbols-outlined text-3xl mb-3 block" style="color:#173901;">record_voice_over</span>
-        <div class="font-bold text-sm text-on-surface mb-1">Voice or text</div>
-        <div class="text-xs text-on-surface-variant">Talk or type. Either works. Sage adapts.</div>
+<!-- How Sage guides -->
+<section style="padding:80px 24px;background:#f6f3f2;">
+  <div style="max-width:800px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:16px;text-align:center;">How Sage guides the conversation</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:48px;line-height:1.7;">Sage is an AI that asks open-ended questions, never judges, and moves at your pace. It saves everything and builds on what you've shared across sessions.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;">
+      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
+        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">slow_motion_video</span>
+        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Moves at your pace</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">No pressure to answer everything in one session. Come back tomorrow, next week, whenever you're ready.</p>
       </div>
-      <div class="bg-white rounded-2xl p-6 text-center">
-        <span class="material-symbols-outlined text-3xl mb-3 block" style="color:#173901;">memory</span>
-        <div class="font-bold text-sm text-on-surface mb-1">Remembers context</div>
-        <div class="text-xs text-on-surface-variant">Builds on previous sessions. No starting over.</div>
+      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
+        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">psychology</span>
+        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Open-ended questions</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Sage asks questions that invite reflection, not yes/no checkboxes. Your answers are captured in your own words.</p>
       </div>
-      <div class="bg-white rounded-2xl p-6 text-center">
-        <span class="material-symbols-outlined text-3xl mb-3 block" style="color:#173901;">pace</span>
-        <div class="font-bold text-sm text-on-surface mb-1">Your pace</div>
-        <div class="text-xs text-on-surface-variant">Skip topics. Come back. No pressure.</div>
+      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
+        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">memory</span>
+        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Remembers context</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Sage builds a cumulative profile across sessions. It won't ask what you've already answered.</p>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;">
+        <span class="material-symbols-outlined" style="color:#173901;font-size:32px;margin-bottom:12px;display:block;">lock</span>
+        <h3 style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1c1b1b;margin-bottom:8px;">Private and secure</h3>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;color:#43493d;line-height:1.6;">Your responses are encrypted and never sold. You control who sees your care summary.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="px-6 py-14" style="background:#173901;">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-white text-2xl font-extrabold tracking-tight mb-3">Ready to start?</h2>
-    <p class="mb-6" style="color:rgba(255,255,255,0.7);">Sage will walk you through the first conversation. Takes about 20 minutes.</p>
-    <a href="sage-onboarding.html" class="inline-flex items-center gap-2 font-bold text-base px-8 py-4 rounded-full" style="background:#fc6451;color:#fff;text-decoration:none;">
-      Start with Sage <span class="material-symbols-outlined text-lg">arrow_forward</span>
+<!-- Sample questions -->
+<section style="padding:80px 24px;background:#fcf9f8;">
+  <div style="max-width:800px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:12px;text-align:center;">Sample questions Sage asks</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:40px;">These aren't trick questions or legal terms. They're the conversations families wish they'd had sooner.</p>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What does a good day look like for you right now?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What worries you most about getting older or becoming more dependent?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What would make life feel like it was no longer worth living for you personally?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"Who do you trust most to make decisions for you when you can't make them yourself?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"If you could no longer live on your own, where would you want to be?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"Is there a story from your life that you'd want your grandchildren to know?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"What would you want your doctors to know about you as a person — not just your medical history?"</p>
+      </div>
+      <div style="background:#f6f3f2;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;">
+        <span class="material-symbols-outlined" style="color:#2d5016;font-size:20px;flex-shrink:0;margin-top:2px;">chat_bubble</span>
+        <p style="font-family:'Inter',sans-serif;font-size:16px;color:#1c1b1b;line-height:1.6;font-style:italic;">"How important is it to you to stay alive as long as possible, even if that means significant discomfort?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The output -->
+<section style="padding:80px 24px;background:#f6f3f2;">
+  <div style="max-width:800px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:#173901;margin-bottom:12px;text-align:center;">The output — your Care Summary</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:#43493d;text-align:center;margin-bottom:40px;line-height:1.7;">At the end of your conversation, CareGoals produces a Care Summary — a readable document that captures your values, preferences, and decisions in a format families and care teams can actually use.</p>
+    <div style="background:#fff;border-radius:16px;padding:32px;border:1px solid #e5e2e1;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #f0eded;">
+        <span class="material-symbols-outlined" style="color:#173901;font-size:28px;">description</span>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:16px;font-weight:800;color:#1c1b1b;">Dorothy's Care Summary</div>
+          <div style="font-family:'Inter',sans-serif;font-size:13px;color:#73796c;">Last updated April 2026 · Shared with 3 family members</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">What matters most to Dorothy</div>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Being at home. Seeing her grandchildren regularly. Having her morning coffee on the porch. Staying sharp mentally — she says "I'd rather feel pain than feel lost."</p>
+        </div>
+        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">Medical preferences</div>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Does not want mechanical ventilation if there is no realistic expectation of recovery. Prefers comfort-focused care. Does not want hospitalization for end-stage decline — prefers home with hospice support.</p>
+        </div>
+        <div style="background:#f6f3f2;border-radius:8px;padding:16px;">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#73796c;margin-bottom:6px;">Healthcare proxy</div>
+          <p style="font-family:'Inter',sans-serif;font-size:14px;color:#1c1b1b;line-height:1.7;">Primary: Margaret (daughter, Boulder CO). Alternate: Thomas (son, Denver). "Margaret knows how I think. She'll do the hard thing even when it's hard."</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:14px;color:#73796c;text-align:center;margin-top:16px;">Your Care Summary can be shared securely with family members, your physician, and your care team.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#173901;padding:72px 24px;text-align:center;">
+  <div style="max-width:560px;margin:0 auto;">
+    <h2 style="font-family:'Inter',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;margin-bottom:16px;">Start your conversation</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:32px;line-height:1.7;">It takes about 20 minutes for a first session. Nothing is final — every answer can be updated anytime.</p>
+    <a href="sage-onboarding.html" style="display:inline-flex;align-items:center;gap:8px;background:#fc6451;color:#fff;font-family:'Inter',sans-serif;font-size:16px;font-weight:700;padding:16px 32px;border-radius:100px;text-decoration:none;">
+      Begin with Sage
+      <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
     </a>
   </div>
 </section>
 
-<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;border-top:1px solid rgba(255,255,255,0.08);">
+<footer style="background:#173901;color:rgba(255,255,255,0.75);padding:48px 24px 32px;margin-top:0;">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;">
-      <div><div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
-        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided advance care planning. A co-op.care product.</p></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:12px;">CareGoals</div>
+        <p style="font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">AI-guided care planning conversations. A co-op.care product.</p>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Plan</div>
         <a href="conversation.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Conversations</a>
         <a href="first-session.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">First Session</a>
-        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
+        <a href="sage-onboarding.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Start with Sage</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Learn</div>
         <a href="features.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Features</a>
-        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Stories</a></div>
-      <div><div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
-        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a></div>
+        <a href="gallery.html" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">Gallery</a>
+      </div>
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;">Company</div>
+        <a href="https://co-op.care" style="display:block;font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:8px;">co-op.care</a>
+      </div>
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <span style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.4);">© 2026 CareGoals · A co-op.care product</span>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Care Team Coordination | Resilient Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#410000",
+                    "primary-container": "#173901",
+                    "on-secondary-fixed-variant": "#8e130b",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8faf1",
+                    "tertiary-fixed-dim": "#a8d38a",
+                    "secondary-container": "#fc6451",
+                    "outline-variant": "#c3c9b9",
+                    "on-primary-fixed": "#0a2100",
+                    "secondary": "#b02d21",
+                    "tertiary-fixed": "#c3efa4",
+                    "primary-fixed-dim": "#a8d389",
+                    "tertiary-container": "#173902",
+                    "surface-dim": "#d9dbd2",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#092100",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#e1e3db",
+                    "inverse-on-surface": "#f0f2e9",
+                    "outline": "#73796c",
+                    "on-surface-variant": "#43493d",
+                    "surface-container-highest": "#e1e3db",
+                    "on-tertiary-fixed-variant": "#2c4f16",
+                    "surface-container-high": "#e7e9e0",
+                    "primary-fixed": "#c3efa3",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#7ca561",
+                    "on-secondary-container": "#650001",
+                    "tertiary": "#0a2200",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#ffdad5",
+                    "on-background": "#191c17",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#2c4f15",
+                    "inverse-primary": "#a8d389",
+                    "background": "#f8faf1",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "primary": "#0a2200",
+                    "surface": "#f8faf1",
+                    "surface-tint": "#43682b",
+                    "surface-container-low": "#f3f4ec",
+                    "inverse-surface": "#2e312c",
+                    "surface-container": "#edefe6",
+                    "on-surface": "#191c17",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#7ca560"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-[#f8faf1]/80 backdrop-blur-xl z-50">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="close-up portrait of a mature man with a kind smile, natural outdoor lighting, soft focus greenery background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxgeHvn-fvMVXBW7m06spo6ZLFIFKyzm2MDNJuNyB8chXtz-vvtS91nYYPl9hSsnERNzMqRxo1W1DHF8AiPo4XmBJREolKwT3xo7E6N-L4jknFY11Gyjho7RXKygosskNEZSR0XCQ9RzkT1Fqdf2WBqW4zOoSujR-OzkXQzp_twZctxWkdQDPTLd_tlxempC1bORwOjlc_lrEXQ1rGEyQGGBAP1IhmMo2O3aC6JyVGMYMI2s5DrQ9V_DbRow7yyF4BYbOfvjeJl4U"/>
+<span class="font-headline font-black text-[#0a2200] tracking-tighter text-lg">Resilient Sanctuary</span>
+</div>
+<button class="text-[#0a2200] hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-24 px-6 max-w-7xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<h1 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tight text-primary leading-[1.1]">
+                        Our Circle of <br/><span class="text-secondary-container">Gentle Support.</span>
+</h1>
+</div>
+<div class="md:col-span-5 pb-2">
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        Coordinating care shouldn't feel like a chore. Here is the sanctuary of people dedicated to your well-being, organized for clarity and peace of mind.
+                    </p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Care Team Members (Bento Style) -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Member Card: Primary Caregiver -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(25,28,23,0.03)] flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<img alt="Member" class="w-20 h-20 rounded-lg object-cover" data-alt="portrait of a middle-aged woman with warm expression, wearing a soft cream sweater, natural light from a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzfTKOyOYwHAQYxKbXyX5HfQJTZkxwt_BYHdkMwCQwgwl3X_7njqtO0GFfTZ4Ltl9VaNBidvR9PGz5jqKozofo4rGfmhhtpAmdA4bqSWOszY9XZTOnm0zXJMQtPcdF-3C_B24pgIsR-MfUqJbmdU1EswkMAIPOY8P1nO-R1aWXlSEmOmzwLSMiZVdwArtpAd_nLUl7Rzif1rMl7Qr0p3UP_VamRbvPaiE_JI-JydHGBdNOX8Mc9PzgJt2xPjY8TQRCR_tUZbjgjAw"/>
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Primary Caregiver</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-primary">Sarah Jenkins</h3>
+<p class="text-on-surface-variant italic">Daughter &amp; Healthcare Proxy</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary text-white w-full py-3 rounded-full font-bold hover:opacity-90 transition-opacity">Message</button>
+<button class="bg-surface-container-low text-primary w-14 h-14 flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+<!-- Member Card: Medical Professional -->
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<img alt="Doctor" class="w-20 h-20 rounded-lg object-cover" data-alt="professional portrait of a male doctor in a light blue shirt, calm and reassuring expression, minimalist medical office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkVkJoq9b2L5nsatx6OpSIjw5ioenpyIYk_hfQ2V_3vXdZZETfI_B_k_-OsRRcYGa7YCXq6o_34kAVbw699YANXXMy7nn8i9ISbDQhkYmIJaGKGEoPksJjh7MjlkVKP2N3FJJh7wxfnpJnSqYT-O2IlN4fC0awXXXYwlToPM9SHvH3pLPkU9W0skqOts98jhW9gZmoK98ln4d2pY9N1hovwSGv-lYlYdc8giFVdvkInddF4UUCqDwFbJU_SkBMFC1PxdwiJdHfhHM"/>
+<span class="bg-surface-container-highest text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Medical Lead</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-primary">Dr. Elias Thorne</h3>
+<p class="text-on-surface-variant">Palliative Care Specialist</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/20">
+<p class="text-sm flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                            Available: Mon - Thu, 9am - 4pm
+                        </p>
+</div>
+</div>
+<!-- Chat Preview Section (Spans 2 columns on tablet+) -->
+<div class="md:col-span-2 bg-primary text-white rounded-xl overflow-hidden relative min-h-[300px]">
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+<div class="p-8 relative z-10 h-full flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-headline font-bold">Family Care Circle</h3>
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-slate-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-emerald-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-rose-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-surface-container flex items-center justify-center text-[10px] text-primary font-bold">+4</div>
+</div>
+</div>
+<div class="space-y-4 flex-grow">
+<div class="bg-primary-container/50 p-4 rounded-lg rounded-tl-none max-w-[80%]">
+<p class="text-xs font-bold text-tertiary-fixed mb-1">Sarah Jenkins</p>
+<p class="text-sm">I've updated the weekend schedule. Who can take the Saturday afternoon shift for reading?</p>
+</div>
+<div class="bg-white/10 p-4 rounded-lg rounded-tr-none max-w-[80%] ml-auto backdrop-blur-sm">
+<p class="text-xs font-bold text-secondary-container mb-1">Michael (You)</p>
+<p class="text-sm">I'm free from 2pm onwards. I'll bring the new poetry book.</p>
+</div>
+</div>
+<div class="mt-6 flex gap-3">
+<div class="flex-grow bg-white/10 rounded-full px-5 py-3 flex items-center backdrop-blur-md">
+<span class="text-white/60 text-sm">Type a message...</span>
+</div>
+<button class="bg-secondary-container text-white p-3 rounded-full active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Delegated Tasks & Summary -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Gentle Quote Signature Component -->
+<div class="bg-surface-container-highest p-8 rounded-lg relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary-container"></div>
+<p class="text-primary font-headline font-semibold text-lg leading-snug">
+                        "Care is not a burden to be carried alone, but a tapestry to be woven together."
+                    </p>
+</div>
+<!-- Delegated Tasks List -->
+<div class="bg-surface-container p-6 rounded-xl space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-headline font-bold text-primary text-xl">Active Tasks</h4>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-variant px-2 py-1 rounded">8 DELEGATED</span>
+</div>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary-container">
+<span class="material-symbols-outlined" data-icon="medication">medication</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-primary text-sm">Organize Meds</p>
+<p class="text-xs text-on-surface-variant">Assigned to Sarah</p>
+</div>
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Task Item -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-primary text-sm">Grocery Run</p>
+<p class="text-xs text-on-surface-variant">Assigned to David</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+</div>
+<!-- Task Item -->
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-primary text-sm">Review Legal Docs</p>
+<p class="text-xs text-on-surface-variant">Assigned to Mark (Legal)</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-lg text-on-surface-variant font-bold text-sm hover:bg-surface-variant/30 transition-colors">
+                        + Delegate New Task
+                    </button>
+</div>
+<!-- Coordination Map Placeholder -->
+<div class="rounded-xl overflow-hidden h-48 relative bg-surface-dim">
+<img alt="Map" class="w-full h-full object-cover grayscale opacity-50" data-alt="minimalist overhead map view of a suburban neighborhood with soft muted green and grey tones" data-location="Seattle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyFIP8_89jfzDZvTaIQSZZyVqttlKjsxq1CtcpQklDEvW2JzMZHTcJZyL57PUFpywoKL4p5-mjPJVXdax63ZErY92ZLEtdGXewriZWgrRrL1iXl4HjwRIMY-Q9DJTekIDVWWCI_kXNM2nCSAg0ie8aqF_IRTav9M7-yLe8nFoxYuyIZ2nHsRcqljtDnkxYKvUqPUb8cJgLkiEtPAo8p4bnaaLj40jHKZZXXXKHL5QPRvBUm3DuT0VQgLq9LPvZzsTdyTnaI5s_1VU"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-primary/20 backdrop-blur-[2px] p-6 text-center">
+<span class="material-symbols-outlined text-white mb-2" data-icon="location_on">location_on</span>
+<p class="text-white font-bold text-sm">4 Team Members Nearby</p>
+<p class="text-white/80 text-xs">Averaging 15m response time</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for adding new team member -->
+<button class="fixed right-8 bottom-32 bg-secondary-container text-white w-16 h-16 rounded-full shadow-xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined scale-125" data-icon="person_add">person_add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8faf1]/90 backdrop-blur-2xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(25,28,23,0.05)]">
+<a class="flex flex-col items-center justify-center text-[#43493d] opacity-60 hover:opacity-100 transition-all active:scale-90 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-body text-[11px] font-medium tracking-wide mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43493d] opacity-60 hover:opacity-100 transition-all active:scale-90 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard_customize">dashboard_customize</span>
+<span class="font-body text-[11px] font-medium tracking-wide mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43493d] opacity-60 hover:opacity-100 transition-all active:scale-90 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-body text-[11px] font-medium tracking-wide mt-1">Library</span>
+</a>
+<!-- Active Tab: Team -->
+<a class="flex flex-col items-center justify-center bg-[#f3f4ec] text-[#fc6451] rounded-full px-5 py-2 active:scale-90 duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-body text-[11px] font-medium tracking-wide mt-1">Team</span>
+</a>
+</nav>
+</body></html>
