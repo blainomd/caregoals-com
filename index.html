@@ -245,9 +245,9 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
       <h2 class="text-4xl md:text-5xl italic mb-6">Every life deserves more than a dash between two dates.</h2>
       <p class="text-secondary text-lg mb-10 max-w-xl mx-auto">Record your first story. Share a Legacy Card. Connect to co-op.care for full family care at $59/mo — the membership that pays for itself.</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="/assess" class="px-10 py-5 bg-primary text-on-primary rounded-lg font-bold text-lg shadow-lg shadow-primary/10 hover:bg-primary-container transition-all">Start recording stories</a>
+        <a href="/onboarding" class="px-10 py-5 bg-primary text-on-primary rounded-lg font-bold text-lg shadow-lg shadow-primary/10 hover:bg-primary-container transition-all">Start recording stories</a>
         <a href="https://co-op.care" class="px-10 py-5 border border-outline-variant/30 text-primary rounded-lg font-bold text-lg hover:bg-surface-container-low transition-colors">co-op.care $59/mo</a>
-        <a href="https://caregoals.com/legacy-ai.html" class="px-10 py-5 border border-outline-variant/30 text-primary rounded-lg font-bold text-lg hover:bg-surface-container-low transition-colors">Explore Legacy AI</a>
+        <a href="/features" class="px-10 py-5 border border-outline-variant/30 text-primary rounded-lg font-bold text-lg hover:bg-surface-container-low transition-colors">Explore all features</a>
       </div>
     </div>
   </div>
@@ -373,7 +373,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
           box-shadow: 0 0 6px var(--footer-accent);
         "></div>
         <span style="font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85);">Sage</span>
-        <span style="font-size: 11px; color: rgba(255,255,255,0.3);">HarnessHealth AI</span>
+        <span style="font-size: 11px; color: rgba(255,255,255,0.3);">co-op.care</span>
       </div>
       <button onclick="hhRailToggleSage()" style="
         background: none; border: none; cursor: pointer;
@@ -412,7 +412,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
         line-height: 1.6;
         max-width: 88%;
       ">
-        Hi. I'm Sage — the AI layer across the HarnessHealth network. Select a question below or type your own.
+        Hi. I'm Sage — the AI layer across co-op.care. Select a question below or type your own.
       </div>
     </div>
 
@@ -457,6 +457,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
 
 </footer>
 
+<script src="/footer.js"></script>
 <script>
 (function() {
   'use strict';
@@ -489,7 +490,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
     default: [
       { tag: 'CMS · April 2026', text: 'CJR-X proposed: mandatory joint replacement bundles nationwide. 90-day episodes, 2,500 hospitals.', dot: DOT_ORANGE },
       { tag: 'IRS 213(d)',        text: 'Physician-signed LMN unlocks HSA/FSA for home care. Average family saves $936/yr. Most never receive one.', dot: DOT_GREEN },
-      { tag: 'HarnessHealth · 2026', text: 'AI generates. Physicians attest. Every clinical document exits through a hard intercept — no exceptions.', dot: DOT_INDIGO }
+      { tag: 'co-op.care · 2026', text: 'AI generates. Physicians attest. Every clinical document exits through a hard intercept — no exceptions.', dot: DOT_INDIGO }
     ]
   };
 
@@ -547,7 +548,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
       // No profile
       html = dot('#6b7280') +
         span('Not connected', 'rgba(255,255,255,0.4)', '12px') +
-        link('Connect →', 'https://harnesshealth.ai/connect', 'rgba(255,255,255,0.28)');
+        link('Start free', 'https://co-op.care', 'rgba(255,255,255,0.28)');
     } else if (plan === 'member') {
       // Full member
       var lmnBadge = lmn ? badge('LMN: active', DOT_GREEN) : '';
@@ -555,14 +556,14 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
         span('Member', 'rgba(255,255,255,0.85)', '12px', 'font-weight:700') +
         span(plan === 'member' ? '$59/mo' : plan, accent, '11px') +
         lmnBadge +
-        link('Dashboard →', 'https://harnesshealth.ai/connect', 'rgba(255,255,255,0.3)');
+        link('Dashboard →', 'https://co-op.care', 'rgba(255,255,255,0.3)');
     } else if (plan === 'lmn_only') {
       // LMN only
       var renewText = lmnExp ? 'Renews ' + lmnExp : '';
       html = dot('#6bd8cb') +
         span('LMN active', 'rgba(255,255,255,0.8)', '12px', 'font-weight:600') +
         (renewText ? span(renewText, 'rgba(255,255,255,0.3)', '11px') : '') +
-        link('Upgrade to member →', 'https://harnesshealth.ai/connect', 'rgba(255,255,255,0.3)');
+        link('Upgrade to member →', 'https://co-op.care', 'rgba(255,255,255,0.3)');
     } else if (profile) {
       // Profile but no plan — chanio active
       var profileLabel = profile.charAt(0).toUpperCase() + profile.slice(1);
@@ -572,9 +573,9 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
           ? 'https://co-op.care'
           : profile === 'physician' || profile === 'clinicalswipe'
             ? 'https://clinicalswipe.com'
-            : 'https://harnesshealth.ai/connect';
+            : 'https://co-op.care';
       html = dot(DOT_INDIGO) +
-        span('chanio active', accent, '12px', 'font-weight:600') +
+        span('Connected', accent, '12px', 'font-weight:600') +
         span(profileLabel, 'rgba(255,255,255,0.35)', '11px') +
         link('Upgrade →', upgradeHref, 'rgba(255,255,255,0.3)');
     }
@@ -732,7 +733,7 @@ h1,h2,h3,.font-serif{font-family:'Newsreader',serif}
       msgs.removeChild(typing);
       var reply = document.createElement('div');
       reply.style.cssText = 'background:rgba(255,255,255,0.04);border-radius:10px 10px 10px 2px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:88%';
-      reply.innerHTML = 'Sage is available through the HarnessHealth MCP connector. <a href="https://harnesshealth.ai/connect" style="color:var(--footer-accent);text-decoration:none;font-weight:600">Connect Claude \u2192</a> to start a conversation with full context.';
+      reply.innerHTML = 'Sage is the AI layer across co-op.care. <a href="https://co-op.care" style="color:var(--footer-accent);text-decoration:none;font-weight:600">Join co-op.care \u2192</a> to start a conversation with full family care context.';
       msgs.appendChild(reply);
       msgs.scrollTop = msgs.scrollHeight;
     }, 1200);
