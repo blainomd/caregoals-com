@@ -297,9 +297,25 @@ footer.site .right { text-align: left; }
 @media (min-width: 720px) { footer.site .right { text-align: right; } }
 footer.site a { color: var(--ink-dim); text-decoration: none; }
 footer.site a:hover { color: var(--sage); }
+
+/* a11y — visually-hidden utility, becomes visible on focus */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.skip-link:focus {
+  position: fixed; top: 12px; left: 12px; z-index: 1000;
+  width: auto; height: auto; padding: 12px 18px; margin: 0;
+  overflow: visible; clip: auto; white-space: normal;
+  background: var(--ink); color: var(--paper); border-radius: 8px;
+  font-family: 'Inter', sans-serif; font-weight: 600; text-decoration: none;
+  box-shadow: 0 4px 12px rgba(11,14,39,0.18);
+}
 </style>
 </head>
 <body>
+
+<a href="#main" class="sr-only skip-link">Skip to content</a>
 
 <nav class="top">
   <a href="/" class="brand"><span class="dot"></span>CareGoals</a>
@@ -311,7 +327,7 @@ footer.site a:hover { color: var(--sage); }
   <a href="/first-session" class="cta">Start a session</a>
 </nav>
 
-<header class="hero">
+<header class="hero" id="main" role="main">
   <div>
     <div class="eyebrow">A conversation. Not a form.</div>
     <h1 class="hero-title serif">Every life deserves more than<br><em>a dash between two dates.</em></h1>
