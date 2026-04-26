@@ -16,6 +16,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <script src="https://harnesshealth.ai/footer.js" defer></script>
+<!-- Phase 2 SSO: shared SolvingHealth network auth widget (one-line drop-in) -->
+<script src="https://co-op.care/auth.js" defer></script>
 
 <style>
 :root {
@@ -292,6 +294,9 @@ footer.site a:hover { color: var(--sage); }
       <a href="/gallery" class="btn-secondary">See sample profiles</a>
     </div>
     <div class="hero-microcopy">No forms. 15 minutes at a time. Resume whenever you're ready.</div>
+
+    <!-- Network auth: returning users sign in to pick up the conversation -->
+    <div data-coop-auth data-coop-auth-copy="Returning to a conversation? Sign in to pick up where you left off." style="margin-top:1.25rem;"></div>
   </div>
 
   <div>
