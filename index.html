@@ -289,11 +289,81 @@ footer.site a:hover { color: var(--sage); }
     <div class="eyebrow">A conversation. Not a form.</div>
     <h1 class="hero-title serif">Every life deserves more than<br><em>a dash between two dates.</em></h1>
     <p class="hero-deck">CareGoals captures the values, memories, and wishes that make you <em>you</em> — in your own voice, over many short conversations, shareable with the people who matter when it matters most.</p>
+
+    <!-- ═══════════ DIAGNOSTIC HOOK — plan the first conversation ═══════════ -->
+    <div class="cg-diag" id="cg-diag" style="background:#fff;border:1px solid var(--rule,#e6dcc7);border-radius:14px;padding:1.25rem 1.4rem;margin-bottom:1.25rem;">
+      <div class="mono" style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--terra,#9c5b3e);margin-bottom:0.7rem;">Plan your first conversation</div>
+
+      <div id="cg-diag-q1">
+        <label style="display:block;font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ink,#2a1f15);margin-bottom:0.5rem;">How old is your parent?</label>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+          <input type="range" id="cg-age" min="55" max="98" value="72" oninput="cgUpdateAge()" style="flex:1 1 220px;accent-color:var(--terra,#9c5b3e);">
+          <output id="cg-age-out" style="font-family:'Fraunces',serif;font-size:1.4rem;color:var(--terra,#9c5b3e);font-weight:600;min-width:60px;text-align:center;">72</output>
+        </div>
+      </div>
+
+      <div id="cg-diag-q2" style="margin-top:1.1rem;">
+        <label style="display:block;font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ink,#2a1f15);margin-bottom:0.5rem;">Have you talked about their wishes?</label>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;" id="cg-status-chips">
+          <button type="button" class="cg-chip" data-status="not-yet" onclick="cgPickStatus(this)" style="padding:6px 12px;background:#fff;border:1px solid var(--rule,#e6dcc7);border-radius:999px;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--ink,#2a1f15);cursor:pointer;transition:all 0.15s;">Not yet</button>
+          <button type="button" class="cg-chip" data-status="started" onclick="cgPickStatus(this)" style="padding:6px 12px;background:#fff;border:1px solid var(--rule,#e6dcc7);border-radius:999px;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--ink,#2a1f15);cursor:pointer;transition:all 0.15s;">A little, here and there</button>
+          <button type="button" class="cg-chip" data-status="written" onclick="cgPickStatus(this)" style="padding:6px 12px;background:#fff;border:1px solid var(--rule,#e6dcc7);border-radius:999px;font-family:'Inter',sans-serif;font-size:12.5px;color:var(--ink,#2a1f15);cursor:pointer;transition:all 0.15s;">We have something written</button>
+        </div>
+      </div>
+
+      <div id="cg-diag-result" style="display:none;margin-top:1.1rem;padding-top:1.1rem;border-top:1px dashed var(--rule,#e6dcc7);font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;line-height:1.55;color:var(--ink-dim,#52443a);"></div>
+    </div>
+
     <div class="hero-ctas">
       <a href="/first-session" class="btn-primary">Have your first session →</a>
       <a href="/gallery" class="btn-secondary">See sample profiles</a>
     </div>
     <div class="hero-microcopy">No forms. 15 minutes at a time. Resume whenever you're ready.</div>
+
+    <script>
+      // Diagnostic hook — surface a reflective moment before the user clicks into the conversation.
+      // Two inputs (parent age + conversation status); one warm reveal that frames the moment.
+      // No tracking, no submit, just an honest mirror.
+      function cgUpdateAge() {
+        const v = document.getElementById('cg-age').value;
+        document.getElementById('cg-age-out').textContent = v;
+        cgRenderResult();
+      }
+      function cgPickStatus(btn) {
+        document.querySelectorAll('#cg-status-chips .cg-chip').forEach(c => {
+          c.style.background = '#fff';
+          c.style.borderColor = 'var(--rule,#e6dcc7)';
+          c.style.color = 'var(--ink,#2a1f15)';
+          c.removeAttribute('data-active');
+        });
+        btn.style.background = 'var(--terra-soft,#f8e8d8)';
+        btn.style.borderColor = 'var(--terra,#9c5b3e)';
+        btn.style.color = 'var(--terra,#9c5b3e)';
+        btn.setAttribute('data-active', '1');
+        cgRenderResult();
+      }
+      function cgRenderResult() {
+        const age = parseInt(document.getElementById('cg-age').value, 10);
+        const active = document.querySelector('#cg-status-chips .cg-chip[data-active]');
+        if (!active) return; // wait for status pick
+        const status = active.getAttribute('data-status');
+        // Rough US life-expectancy estimate at age X (averaged across sex)
+        const yearsLeft = Math.max(2, Math.round(85 - age * 0.62));
+        let msg;
+        if (status === 'not-yet' && age < 75) {
+          msg = `<strong>You're early — and that's the gift.</strong> ~${yearsLeft} years of good days ahead means many short conversations to capture what makes them them. The first one is the hardest. After that, it's just talking.`;
+        } else if (status === 'not-yet' && age >= 75) {
+          msg = `<strong>Most families wait too long.</strong> ACP conversations average just 12–18 months before they're needed — sometimes less. ~${yearsLeft} years is a window, not a guarantee. Fifteen minutes today changes the trajectory of the next decade.`;
+        } else if (status === 'started') {
+          msg = `<strong>You've started — that's already rare.</strong> Reed can help structure what you've already shared, fill the gaps gently, and capture it in your parent's voice instead of in your memory of their voice.`;
+        } else if (status === 'written') {
+          msg = `<strong>You're ahead of 95% of families.</strong> Reed can help refresh what's written, capture what's changed, and make sure the people who need it can find it — when they need it, in your parent's actual voice.`;
+        }
+        const el = document.getElementById('cg-diag-result');
+        el.innerHTML = msg + '<div style="margin-top:0.85rem;font-style:normal;font-family:\'IBM Plex Mono\',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--ink-soft,#8b7a6e);">↓ Have your first session below</div>';
+        el.style.display = 'block';
+      }
+    </script>
 
     <!-- Network auth: returning users sign in to pick up the conversation -->
     <div data-coop-auth data-coop-auth-copy="Returning to a conversation? Sign in to pick up where you left off." style="margin-top:1.25rem;"></div>
