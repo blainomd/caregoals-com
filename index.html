@@ -810,12 +810,13 @@ footer.site a:hover { color: var(--sage); }
   function buildOAuthRedirect() {
     try {
       const o = window.location.origin;
-      const p = window.location.pathname || '/';
-      // Treat /index.html and / as the same canonical destination
-      const path = p === '/index.html' ? '/' : p;
-      return o + path;
+      // Land on /conversation after sign-in — that's the canonical
+      // post-auth destination for caregoals (continue the directive
+      // build). The conversation page itself includes a banner with
+      // a link to the full ComfortCard profile.
+      return o + '/conversation';
     } catch (_) {
-      return 'https://caregoals.com/';
+      return 'https://caregoals.com/conversation';
     }
   }
 
