@@ -225,6 +225,288 @@ body {
   font-style: italic;
 }
 
+/* Care wishes DOCUMENT (the upgraded, print-ready render) */
+.wd-doc {
+  font-family: var(--serif);
+  color: var(--navy);
+  background: var(--white);
+}
+.wd-header {
+  text-align: left;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--sage-dark);
+  margin-bottom: 20px;
+}
+.wd-stamp {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.wd-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 6px 0;
+  color: var(--navy);
+}
+.wd-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--gray-500);
+}
+.wd-body { display: flex; flex-direction: column; gap: 16px; }
+.wd-section { padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.wd-section:last-child { border-bottom: none; }
+.wd-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.wd-value {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--navy);
+}
+.wd-value.wd-quote {
+  font-style: italic;
+  padding-left: 12px;
+  border-left: 2px solid var(--sage-light);
+}
+.wd-list {
+  margin: 0;
+  padding-left: 20px;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--navy);
+}
+.wd-list li { margin-bottom: 4px; }
+.wd-flag {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--terra, #C9644E);
+  margin-top: 4px;
+}
+.wd-footer {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.wd-attest {
+  margin-bottom: 14px;
+}
+.wd-attest-line {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 16px;
+}
+.wd-attest-slot {
+  font-family: var(--sans);
+  letter-spacing: 0.05em;
+  color: var(--gray-300, #D5D2CC);
+  margin-bottom: 4px;
+}
+.wd-attest-meta {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--gray-500);
+  letter-spacing: 0.04em;
+}
+.wd-note {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+/* "Send to Josh for review" CTA block on the wishes document */
+.review-cta {
+  margin: 18px 0 14px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--sage-light) 0%, rgba(229,239,217,0.55) 100%);
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+}
+.review-cta-head {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 6px;
+}
+.review-cta-body {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.review-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.review-cta-btn {
+  background: var(--sage-dark);
+  color: var(--white);
+  border: none;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.review-cta-btn:hover { background: var(--sage); }
+.review-cta-btn:active { transform: scale(0.98); }
+.review-cta-cancel {
+  background: transparent;
+  color: var(--gray-500);
+  border: none;
+  padding: 9px 12px;
+  font-family: var(--sans);
+  font-size: 13px;
+  cursor: pointer;
+}
+.review-cta-cancel:hover { color: var(--navy); }
+.review-cta-meta {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--gray-500);
+  letter-spacing: 0.02em;
+}
+.review-form {
+  display: none;
+  margin-top: 12px;
+  padding: 12px;
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--sage);
+  position: relative;
+}
+.review-form.open { display: block; }
+.review-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.review-form input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--rule, #E6DCC7);
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.review-form input[type="email"]:focus { outline: none; border-color: var(--sage); }
+.review-form-actions { display: flex; gap: 8px; align-items: center; }
+.review-success {
+  display: none;
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: var(--sage-dark);
+  color: var(--white);
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.review-success.open { display: block; }
+
+/* Per-message Replay button — appears on Sage bubbles for tap-to-hear */
+.msg-reed .msg-bubble, .msg-sage .msg-bubble { position: relative; padding-right: 36px; }
+.replay-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 999px;
+  color: var(--sage-dark);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.replay-btn:hover { opacity: 1; background: var(--sage-light); color: var(--sage-dark); }
+.replay-btn:active { transform: scale(0.95); }
+.replay-btn:focus-visible { opacity: 1; outline: 2px solid var(--sage); outline-offset: 2px; }
+
+/* Speaker button visual state — clearer when active */
+.speaker-btn {
+  position: relative;
+}
+.speaker-btn.active {
+  background: var(--sage);
+  color: var(--white);
+  border-color: var(--sage);
+}
+.speaker-btn.active::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 6px;
+  vertical-align: 1px;
+  animation: voicePulse 1.6s ease-in-out infinite;
+}
+@keyframes voicePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* Quick-reply chips parsed from [[CHOICES: a | b | c]] markers Claude can emit */
+.qr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 12px;
+  align-self: flex-start;
+  max-width: 100%;
+}
+.qr-chip {
+  background: var(--sage-light);
+  color: var(--sage-dark);
+  border: 1px solid var(--sage);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.qr-chip:hover { background: var(--sage); color: var(--white); }
+.qr-chip:active { transform: scale(0.97); }
+
 /* Input */
 .input-area {
   padding: 12px 16px 28px;
@@ -329,13 +611,31 @@ body {
   40% { opacity: 1; transform: scale(1); }
 }
 
-/* Print */
+/* Print — when a wishes-card is on screen, ONLY the document prints.
+   Otherwise (no card yet), the conversation prints clean. */
 @media print {
-  .header, .input-area, .msg-user, .quick-replies, .typing, .msg-meta { display: none; }
-  body { background: white; overflow: visible; }
-  .chat { overflow: visible; max-width: 100%; padding: 20px; }
-  .msg-reed .msg-bubble { border: none; box-shadow: none; padding: 8px 0; font-size: 14px; }
-  .wishes-card { break-inside: avoid; border-width: 1px; }
+  .header, .input-area, .quick-replies, .typing, .msg-meta,
+  .replay-btn, .qr-chips, .save-banner, footer, .review-cta, #review-modal { display: none !important; }
+  body { background: white; overflow: visible; color: #1A2536; }
+  .chat { overflow: visible; max-width: 100%; padding: 0; display: block; }
+
+  /* If a wishes-card exists on the page, hide everything else and render
+     the document full-bleed for a hospital-grade printout. */
+  body:has(.wishes-card) .msg,
+  body:has(.wishes-card) #qr-chips,
+  body:has(.wishes-card) .save-banner { display: none !important; }
+  body:has(.wishes-card) .wishes-card { border: none; padding: 0; margin: 0; }
+
+  /* Document styling for print */
+  .wishes-card { break-inside: avoid; border-width: 1px; padding: 24px; box-shadow: none; }
+  .wd-doc { font-family: 'Georgia', 'Times New Roman', serif; }
+  .wd-section { break-inside: avoid; padding: 8px 0; }
+  .wd-attest-slot { color: #999; }
+
+  /* Fallback for browsers without :has() — still hides chat msgs when
+     wishes-card sits at the bottom of the chat. */
+  .msg-reed .msg-bubble { border: none; box-shadow: none; padding: 8px 0; font-size: 14px; background: none; }
+  .msg-user .msg-bubble { background: #f4f4f0; color: #333; padding: 8px 12px; border-radius: 6px; }
 }
 </style>
 </head>
@@ -347,14 +647,16 @@ body {
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/></svg>
     </div>
     <div class="header-text">
-      <h1>Reed</h1>
+      <h1>Sage</h1>
       <p>Your care companion</p>
     </div>
   </div>
   <div class="header-actions">
     <button class="speaker-btn" id="speakerBtn" onclick="toggleSpeaker()">Voice On</button>
+    <button class="print-btn" onclick="showWishesCard()">My Wishes</button>
     <button class="print-btn" onclick="window.print()">Print</button>
     <button class="print-btn" onclick="saveToLocal()">Save</button>
+    <button class="print-btn" onclick="startOver()" title="Clear this conversation and start a new one">Start over</button>
   </div>
 </div>
 
@@ -388,6 +690,10 @@ function addMsg(text, sender) {
     b.className = 'msg-bubble';
     b.innerHTML = text.replace(/\n/g, '<br>');
     d.appendChild(b);
+    // Replay button on every Sage message — works regardless of Voice toggle.
+    if (sender === 'reed' || sender === 'sage') {
+      try { attachReplayButton(b, text); } catch (_) {}
+    }
     chat.appendChild(d);
     chat.scrollTop = chat.scrollHeight;
     setTimeout(resolve, 100);
@@ -422,32 +728,242 @@ function showQR(replies) {
   chat.scrollTop = chat.scrollHeight;
 }
 
-function showWishesCard() {
+// Care Wishes document — Claude extracts structured fields from the live
+// transcript, then we render a print-ready document. Falls back to the
+// best-effort `wishes` collected during the chat if extraction fails.
+const EXTRACT_ENDPOINT = 'https://solvinghealth.com/api/extract-wishes';
+
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+async function extractWishes() {
+  const messages = buildHistory();
+  // Need at least one user turn AND one Sage turn to extract usefully.
+  const userCount = messages.filter(m => m.role === 'user').length;
+  if (userCount < 1) return null;
+  try {
+    const r = await fetch(EXTRACT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages })
+    });
+    if (!r.ok) return null;
+    const data = await r.json();
+    return (data && data.wishes) || null;
+  } catch (e) {
+    console.warn('extractWishes failed', e);
+    return null;
+  }
+}
+
+function renderWishesDoc(w) {
+  const docName = (w && w.name) || name || 'You';
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  const treatmentLabel = {
+    full_code: 'Try every treatment available',
+    comfort_focused: 'Focus on comfort, not prolonging life',
+    conditional: 'Depends on the situation',
+    undecided: 'Still working through this'
+  }[w && w.treatment_preference] || null;
+
+  const cprLabel = {
+    yes: 'Yes — try to restart my heart',
+    no: 'No — if my heart stops, let it stop',
+    conditional: 'Only if there\'s a real chance',
+    undecided: 'I haven\'t decided yet'
+  }[w && w.cpr_preference] || null;
+
+  // Section helper — only render if value is meaningful.
+  const section = (label, value, opts) => {
+    if (value == null) return '';
+    if (Array.isArray(value)) {
+      if (value.length === 0) return '';
+      const items = value.map(v => `<li>${escapeHtml(v)}</li>`).join('');
+      return `<div class="wd-section"><div class="wd-label">${escapeHtml(label)}</div><ul class="wd-list">${items}</ul></div>`;
+    }
+    const text = String(value).trim();
+    if (!text) return '';
+    const cls = (opts && opts.quote) ? 'wd-value wd-quote' : 'wd-value';
+    return `<div class="wd-section"><div class="wd-label">${escapeHtml(label)}</div><div class="${cls}">${escapeHtml(text)}</div></div>`;
+  };
+
+  const proxy = (w && w.speaks_for_me) || {};
+  const proxyText = proxy.who
+    ? (proxy.why ? `${proxy.who} — ${proxy.why}` : proxy.who)
+    : null;
+
+  const html = `
+    <div class="wd-doc" id="wishes-doc">
+      <header class="wd-header">
+        <div class="wd-stamp">CARE WISHES · physician-attestable</div>
+        <h2 class="wd-title">${escapeHtml(docName)}'s wishes, in their words.</h2>
+        <div class="wd-meta">Documented ${today} · caregoals.com</div>
+      </header>
+
+      <div class="wd-body">
+        ${section('Who I am', w && w.about_me, { quote: true })}
+        ${section('A good day, for me', w && w.good_day, { quote: true })}
+        ${section('What brings me joy', w && w.joy, { quote: true })}
+        ${section('Who speaks for me when I can\'t', proxyText)}
+        ${proxy.told_them === false ? '<div class="wd-flag">↳ I haven\'t told them yet.</div>' : ''}
+        ${section('My treatment preference', treatmentLabel)}
+        ${section('CPR', cprLabel)}
+        ${section('What I want', w && w.what_i_want)}
+        ${section('What I do not want', w && w.what_i_dont_want)}
+        ${section('What comfort looks like', w && w.comfort_environment, { quote: true })}
+        ${section('What calms me', w && w.comfort_calming, { quote: true })}
+        ${section('How to treat me when I can\'t respond', w && w.dignity, { quote: true })}
+        ${section('What I want my family to hear', w && w.message_to_family, { quote: true })}
+        ${section('Unfinished', w && w.unfinished_business, { quote: true })}
+        ${section('My faith / spiritual practice', w && w.faith)}
+      </div>
+
+      <footer class="wd-footer">
+        <div class="wd-attest">
+          <div class="wd-attest-line">Reviewed and signed by:</div>
+          <div class="wd-attest-slot">______________________________________</div>
+          <div class="wd-attest-meta">Physician name · NPI · Date</div>
+        </div>
+
+        <div class="review-cta" id="review-cta">
+          <div class="review-cta-head">Make this part of your medical record.</div>
+          <div class="review-cta-body">A 50-state-licensed physician (Josh Emdur, DO) will review what you wrote, sign it, and send back a version your hospital and family can use. We'll also flag anything worth discussing with your own doctor.</div>
+          <div class="review-cta-actions">
+            <button type="button" class="review-cta-btn" onclick="openReviewForm()">Send to Josh for review →</button>
+            <span class="review-cta-meta">Free for co-op.care members · $199 standalone · ~24 hour turnaround</span>
+          </div>
+          <form id="review-form" class="review-form" onsubmit="return submitReview(event)">
+            <label for="review-email" class="review-label">Where should we send the signed document?</label>
+            <input type="email" id="review-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            <input type="text" id="review-honeypot" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
+            <div class="review-form-actions">
+              <button type="submit" class="review-cta-btn">Send for review</button>
+              <button type="button" class="review-cta-cancel" onclick="closeReviewForm()">Not now</button>
+            </div>
+          </form>
+          <div id="review-success" class="review-success">Sent. Josh will be in touch within 24 hours at the email you provided. Your wishes are saved here whenever you want to come back.</div>
+        </div>
+
+        <div class="wd-note">A licensed physician can review and sign this document, making it part of your medical record. CareGoals provides advance care planning tools, not medical or legal advice.</div>
+      </footer>
+    </div>
+  `;
+  return html;
+}
+
+// Inline "Send to Josh" review-request flow.
+function openReviewForm() {
+  const form = document.getElementById('review-form');
+  if (form) {
+    form.classList.add('open');
+    setTimeout(() => { const e = document.getElementById('review-email'); if (e) e.focus(); }, 50);
+  }
+}
+function closeReviewForm() {
+  const form = document.getElementById('review-form');
+  if (form) form.classList.remove('open');
+}
+
+async function submitReview(ev) {
+  if (ev) ev.preventDefault();
+  const emailEl = document.getElementById('review-email');
+  const honeypotEl = document.getElementById('review-honeypot');
+  const success = document.getElementById('review-success');
+  const form = document.getElementById('review-form');
+  if (!emailEl) return false;
+  const email = (emailEl.value || '').trim();
+  if (!email || !email.includes('@')) { emailEl.focus(); return false; }
+  // Honeypot — bots auto-fill; real users leave it empty.
+  const botcheck = (honeypotEl && honeypotEl.value) || '';
+
+  // Build payload — full wishes JSON goes in notes so Josh has context.
+  const wishesSnapshot = (wishes && wishes.__extracted) || wishes || {};
+  const transcript = buildHistory().slice(-30); // last 30 turns is plenty
+  const payload = {
+    email: email,
+    source: 'caregoals_physician_review',
+    brand: 'caregoals.com',
+    intent: 'physician_review_lmn',
+    path: 'conversation',
+    botcheck: botcheck,
+    notes: JSON.stringify({
+      wishes: wishesSnapshot,
+      name: name || null,
+      transcript_tail: transcript,
+      submitted_at: new Date().toISOString()
+    }).slice(0, 8000)
+  };
+
+  // Optimistic UX — show success right away if we got an email; the network
+  // call happens in the background and is logged either way.
+  if (form) form.classList.remove('open');
+  if (success) success.classList.add('open');
+  try {
+    await fetch('https://solvinghealth.com/api/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (e) {
+    console.warn('review submit network failed', e);
+    // Don't surface failure — the user already saw success. We have local state.
+  }
+  // Persist locally so we can show "you already requested review" on return.
+  try {
+    localStorage.setItem('caregoals_review_requested', JSON.stringify({ email, ts: Date.now() }));
+  } catch (_) {}
+  return false;
+}
+
+async function showWishesCard() {
+  // Insert a "drafting" placeholder while we extract.
+  const placeholder = document.createElement('div');
+  placeholder.className = 'wishes-card';
+  placeholder.id = 'wishes-pending';
+  placeholder.innerHTML = '<div style="padding:18px;text-align:center;color:var(--gray-500);font-family:var(--sans);font-size:14px;">Drafting your Care Wishes document…</div>';
+  chat.appendChild(placeholder);
+  chat.scrollTop = chat.scrollHeight;
+
+  const extracted = await extractWishes();
+
+  // Fallback to whatever was best-effort captured during the chat.
+  const w = extracted || {
+    name: name || null,
+    about_me: wishes.values || wishes.aboutYou || null,
+    good_day: wishes.goodDay || null,
+    speaks_for_me: { who: wishes.proxy || null, why: null, told_them: null },
+    treatment_preference: null,
+    cpr_preference: null,
+    what_i_want: [],
+    what_i_dont_want: wishes.wouldNotWant ? [wishes.wouldNotWant] : [],
+    comfort_environment: null,
+    comfort_calming: null,
+    dignity: null,
+    message_to_family: wishes.message || null,
+    unfinished_business: null,
+    joy: wishes.joy || null,
+    faith: null,
+  };
+
   const card = document.createElement('div');
   card.className = 'wishes-card';
+  card.innerHTML = renderWishesDoc(w);
 
-  let html = `<h3>Care Wishes for ${name || 'You'}</h3>`;
-
-  const fields = [
-    ['A Good Day Looks Like', wishes.goodDay],
-    ['Speaks For Me', wishes.proxy],
-    ['Would Not Want', wishes.wouldNotWant],
-    ['What I Value Most', wishes.values],
-    ['Message to My Family', wishes.message],
-    ['What Brings Me Joy', wishes.joy],
-  ];
-
-  fields.forEach(([label, value]) => {
-    if (value) {
-      html += `<div class="wishes-row"><div class="wishes-label">${label}</div><div class="wishes-value">"${value}"</div></div>`;
-    }
-  });
-
-  html += `<div class="wishes-row" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.08)"><div class="wishes-label">Documented</div><div class="wishes-value" style="font-style:normal;font-family:var(--sans);font-size:13px;color:var(--gray-500)">${new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}. To be reviewed by physician.</div></div>`;
-
-  card.innerHTML = html;
-  chat.appendChild(card);
+  const pending = document.getElementById('wishes-pending');
+  if (pending) pending.replaceWith(card);
+  else chat.appendChild(card);
   chat.scrollTop = chat.scrollHeight;
+
+  // Persist the extracted structure for re-renders / print.
+  if (extracted) {
+    wishes.__extracted = extracted;
+    try { saveConversation(); } catch (_) {}
+  }
 }
 
 async function reedReply(text, qr, delay) {
@@ -464,13 +980,138 @@ async function reedReply(text, qr, delay) {
   });
 }
 
-const STEPS = [
-  // 0: Opening — warm, no framework jargon
+// ── Sage: Claude-driven conversation engine ──────────────────────────
+// Replaces the old hardcoded STEPS finite-state machine.
+// Sage listens via /api/sage (Claude Haiku) with full conversation history.
+// Cross-origin to solvinghealth.com because that's where the ANTHROPIC_API_KEY
+// is configured. sage.js sets Access-Control-Allow-Origin: '*' so this works.
+const SAGE_ENDPOINT = 'https://solvinghealth.com/api/sage';
+
+// Build the message history Claude needs (everything except the message we're
+// about to send). Treat 'reed' / 'sage' message DOM classes as assistant turns.
+function buildHistory() {
+  return Array.from(chat.querySelectorAll('.msg')).map(m => {
+    const isUser = m.classList.contains('msg-user');
+    return {
+      role: isUser ? 'user' : 'assistant',
+      content: m.querySelector('.msg-bubble').textContent || ''
+    };
+  }).filter(m => m.content.trim().length > 0);
+}
+
+// Parse [[CHOICES: a | b | c]] markers Claude may include when asking a
+// question with discrete answers. Returns { text, choices }.
+function parseChoiceMarkers(raw) {
+  if (!raw) return { text: '', choices: [] };
+  const re = /\[\[\s*CHOICES?\s*:\s*([^\]]+?)\s*\]\]/i;
+  const m = raw.match(re);
+  if (!m) return { text: raw, choices: [] };
+  const choices = m[1].split('|').map(s => s.trim()).filter(s => s.length > 0 && s.length < 80).slice(0, 5);
+  return { text: raw.replace(re, '').trim(), choices };
+}
+
+async function callSage(message) {
+  const history = buildHistory();
+  try {
+    const r = await fetch(SAGE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message, site: 'caregoals', history })
+    });
+    if (!r.ok) {
+      console.warn('reed http error', r.status);
+      return { text: "Hm — give me a second. Say that one more time?", choices: [] };
+    }
+    const data = await r.json();
+    const raw = (data && data.response) ? data.response : "I'm here. What's on your mind?";
+    return parseChoiceMarkers(raw);
+  } catch (e) {
+    console.warn('reed network error', e);
+    return { text: "Lost the thread for a second — could you say that again?", choices: [] };
+  }
+}
+
+// Render quick-reply chips. Click → fill input → send.
+function showQRChips(choices) {
+  if (!choices || choices.length === 0) return;
+  // Remove any prior chip group.
+  const old = document.getElementById('qr-chips');
+  if (old) old.remove();
+  const wrap = document.createElement('div');
+  wrap.id = 'qr-chips';
+  wrap.className = 'qr-chips';
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'qr-chip';
+    btn.textContent = c;
+    btn.addEventListener('click', () => {
+      input.value = c;
+      const node = document.getElementById('qr-chips');
+      if (node) node.remove();
+      sendMessage();
+    });
+    wrap.appendChild(btn);
+  });
+  chat.appendChild(wrap);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+// Best-effort name capture from any user turn. Won't overwrite if already set.
+function maybeCaptureName(text) {
+  if (name) return;
+  const t = text.trim();
+  if (t.length < 2 || t.length > 60) return;
+  // Try common patterns first
+  const patterns = [
+    /(?:my name is|i'?m|it'?s|call me|they call me|name's)\s+([A-Za-z][A-Za-z'-]{1,30})/i,
+  ];
+  let candidate = '';
+  for (const p of patterns) {
+    const m = t.match(p);
+    if (m) { candidate = m[1]; break; }
+  }
+  // Otherwise: if it's a single word that looks like a name, take it
+  if (!candidate && /^[A-Za-z][A-Za-z'-]{1,30}$/.test(t)) candidate = t;
+  if (!candidate) return;
+  const blocklist = ['hi','hello','hey','yes','no','ok','okay','sure','ready','thanks','umm','well','nope','yep','yeah','hmm','ugh'];
+  if (blocklist.includes(candidate.toLowerCase())) return;
+  name = candidate.charAt(0).toUpperCase() + candidate.slice(1).toLowerCase();
+}
+
+// Lightweight transcript-based wishes accumulation. Sage naturally surfaces
+// these themes via the system prompt; we lift them out for the wishes card.
+function maybeCaptureWishes(userText) {
+  const lower = userText.toLowerCase();
+  // Don't overwrite richer answers with shorter ones
+  const better = (curr, nxt) => (!curr || nxt.length > curr.length * 1.2) ? nxt : curr;
+  if (/(good day|joy|love|happy|happiest|brings me)/.test(lower) && userText.length > 30) {
+    if (!wishes.goodDay) wishes.goodDay = userText;
+    else if (/joy|happi/.test(lower)) wishes.joy = better(wishes.joy, userText);
+  }
+  if (/(speak for|proxy|spouse|husband|wife|partner|daughter|son|sister|brother|friend)/.test(lower) && userText.length < 200) {
+    wishes.proxy = better(wishes.proxy, userText);
+  }
+  if (/(don'?t want|wouldn'?t want|never want|hate the idea|comfortable|let me go|gentle|peace)/.test(lower)) {
+    wishes.wouldNotWant = better(wishes.wouldNotWant, userText);
+  }
+  if (/(matters|matter most|important|values|believe|faith|family|garden|music|outside)/.test(lower) && userText.length > 25) {
+    wishes.values = better(wishes.values, userText);
+  }
+  if (/(want them to know|tell my|message|say to my|love you|proud)/.test(lower) && userText.length > 15) {
+    wishes.message = better(wishes.message, userText);
+  }
+}
+
+const STEPS_LEGACY_PLACEHOLDER = [
+  // Retained as a placeholder so save/load step counters don't break.
+  // The new engine ignores STEPS entirely — Claude handles every turn.
   {
-    reed: "Hi. I'm Reed.\n\nI'm glad you're here. What we're going to do is simple — just talk. About you. About what matters to you. About the things you want the people you love to understand.\n\nBy the end, you'll have something real — a document in your own words that your family and your doctor can hold onto. Not medical language. Your language.\n\nWhat's your name?",
+    reed: "Hi. I'm Sage.\n\nI'm glad you're here. What we're going to do is simple — just talk. About you. About what matters to you. About the things you want the people you love to understand.\n\nBy the end, you'll have something real — a document in your own words that your family and your doctor can hold onto. Not medical language. Your language.\n\nWhat's your name?",
     qr: [],
   },
-  // 1: Name — then ease in gently
+  // (Legacy steps 1-14 removed — Claude handles every turn now via callSage.)
+  /* legacy_steps_removed_marker
   {
     handler: (msg) => {
       // Extract name — handle "My name is X", "I'm X", "It's X", "X", etc.
@@ -659,7 +1300,7 @@ const STEPS = [
       wishes.joy = msg;
       return {
         sage: `${name}.\n\nDo you know what you just did? You put your whole self into words. Not your diagnosis. Not your chart number. You.\n\nI've gathered everything you shared into a document — your Care Wishes. It's below this message. You can print it and give it to:\n\n- The person who speaks for you, so they know exactly what you want\n- Your family, so they never have to guess\n- Your doctor, so it becomes part of your record\n\nA physician can review this and help make it legally binding. But even without that — what you said here today is a gift. Your family will never have to wonder. They'll know. Because you told them.`,
-        qr: ["Print my wishes", "I want to keep talking", "Thank you, Reed"],
+        qr: ["Print my wishes", "I want to keep talking", "Thank you, Sage"],
         showCard: true,
       };
     }
@@ -677,7 +1318,7 @@ const STEPS = [
       }
       if (lower.includes('thank') || lower.includes('done') || lower.includes('goodbye') || lower.includes('think i')) {
         return {
-          sage: `${name}. It's been an honor.\n\nWhat you did today — sitting here, saying these things out loud — most people never do it. You did. And because you did, the people who love you will never have to carry the weight of guessing.\n\nYour words live here now. And they'll live in your family.\n\nCome back anytime. I don't forget.\n\nWith care,\nReed`,
+          sage: `${name}. It's been an honor.\n\nWhat you did today — sitting here, saying these things out loud — most people never do it. You did. And because you did, the people who love you will never have to carry the weight of guessing.\n\nYour words live here now. And they'll live in your family.\n\nCome back anytime. I don't forget.\n\nWith care,\nSage`,
           qr: [],
         };
       }
@@ -705,26 +1346,56 @@ const STEPS = [
       };
     }
   },
+  end_of_legacy_steps_block */
 ];
 
 async function handleMsg(text) {
   await addMsg(text, 'user');
-  const existing = document.getElementById('qr');
-  if (existing) existing.remove();
+  // Clear any prior quick-reply chips when the user types/sends.
+  const oldQr = document.getElementById('qr');
+  if (oldQr) oldQr.remove();
+  const oldChips = document.getElementById('qr-chips');
+  if (oldChips) oldChips.remove();
 
-  let response;
-  if (step < STEPS.length) {
-    const node = STEPS[step];
-    response = node.handler ? node.handler(text) : node;
-    step++;
-  } else {
-    response = STEPS[STEPS.length - 1].handler(text);
+  // Best-effort: lift name + structured wishes from this turn for the document.
+  try { maybeCaptureName(text); maybeCaptureWishes(text); } catch (_) {}
+
+  // Show typing dots immediately so the user knows Sage is thinking,
+  // and ensure they show for at least ~700ms even when Claude is fast.
+  showTyping();
+  const t0 = Date.now();
+  let parsed;
+  try {
+    parsed = await callSage(text);
+  } catch (e) {
+    parsed = { text: "Lost the thread for a second — could you say that again?", choices: [] };
+  }
+  const elapsed = Date.now() - t0;
+  if (elapsed < 700) await new Promise(r => setTimeout(r, 700 - elapsed));
+  hideTyping();
+
+  const replyText = (parsed && parsed.text) || "I'm here.";
+  const replyChoices = (parsed && parsed.choices) || [];
+
+  await addMsg(replyText, 'reed');
+  try { speak(replyText); } catch (_) {}
+
+  if (replyChoices.length > 0) {
+    setTimeout(() => showQRChips(replyChoices), 350);
   }
 
-  await reedReply(response.reed, response.qr);
+  try { saveConversation(); } catch (_) {}
 
-  if (response.showCard) {
-    setTimeout(() => showWishesCard(), 600);
+  // Step counter kept monotonic for save-state continuity. Not used for
+  // control flow — Claude drives the conversation now.
+  step++;
+
+  // After enough turns or when Sage signals closure, surface the wishes card.
+  const userTurns = chat.querySelectorAll('.msg-user').length;
+  const replyLower = replyText.toLowerCase();
+  const closing = /\bcare wishes\b|\byour document\b|\byour family will\b|\bone-page\b|\bsummariz/.test(replyLower);
+  if (userTurns >= 8 && closing && !document.querySelector('.wishes-card')) {
+    setTimeout(() => { try { showWishesCard(); } catch (_) {} }, 800);
   }
 }
 
@@ -741,39 +1412,93 @@ input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); }
 // VOICE — Web Speech API
 // ============================================================
 
-let speakEnabled = false;
+// Persist voice preference across sessions — older users especially prefer
+// audio, and toggling it on every visit is friction.
+let speakEnabled = (function() {
+  try { return localStorage.getItem('caregoals_voice') === '1'; } catch (_) { return false; }
+})();
 let recognition = null;
 let isRecording = false;
 
-// Text-to-Speech: Reed speaks
-function speak(text) {
-  if (!speakEnabled || !window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const clean = text.replace(/\n/g, '. ').replace(/\*\*/g, '');
-  const utterance = new SpeechSynthesisUtterance(clean);
-  utterance.rate = 0.9;
-  utterance.pitch = 1.0;
-  // Prefer a warm female voice
+function pickVoice() {
+  if (!window.speechSynthesis) return null;
   const voices = window.speechSynthesis.getVoices();
-  const preferred = voices.find(v => v.name.includes('Samantha')) ||
-                    voices.find(v => v.name.includes('Karen')) ||
-                    voices.find(v => v.name.includes('Google') && v.lang === 'en-US') ||
-                    voices.find(v => v.lang === 'en-US' && v.localService);
-  if (preferred) utterance.voice = preferred;
-  window.speechSynthesis.speak(utterance);
+  return voices.find(v => v.name.includes('Samantha')) ||
+         voices.find(v => v.name.includes('Karen')) ||
+         voices.find(v => v.name.includes('Google') && v.lang === 'en-US') ||
+         voices.find(v => v.lang === 'en-US' && v.localService) ||
+         voices.find(v => v.lang === 'en-US') ||
+         voices[0] || null;
 }
 
-// Load voices (they load async in some browsers)
+// Text-to-Speech: Sage speaks. `force=true` plays even if speakEnabled is
+// false (used by the per-message Replay button + the test phrase on toggle-on).
+function speak(text, force) {
+  if (!window.speechSynthesis) return false;
+  if (!speakEnabled && !force) return false;
+  try {
+    window.speechSynthesis.cancel();
+    const clean = String(text || '').replace(/\n/g, '. ').replace(/\*\*/g, '').replace(/\s+/g, ' ').trim();
+    if (!clean) return false;
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.rate = 0.92;
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
+    const v = pickVoice();
+    if (v) utterance.voice = v;
+    window.speechSynthesis.speak(utterance);
+    return true;
+  } catch (e) {
+    console.warn('speak failed', e);
+    return false;
+  }
+}
+
+// Pre-warm voices (Chrome loads them async; sometimes the first getVoices()
+// returns []. Re-fetching after onvoiceschanged ensures pickVoice() finds Samantha.)
 if (window.speechSynthesis) {
-  window.speechSynthesis.onvoiceschanged = () => {};
+  window.speechSynthesis.onvoiceschanged = () => { try { window.speechSynthesis.getVoices(); } catch (_) {} };
   window.speechSynthesis.getVoices();
+}
+
+function updateSpeakerBtn() {
+  const btn = document.getElementById('speakerBtn');
+  if (!btn) return;
+  // Show CURRENT STATE (the bug was the label looked like the action).
+  btn.textContent = speakEnabled ? 'Voice: on' : 'Voice: off';
+  btn.classList.toggle('active', speakEnabled);
+  btn.setAttribute('aria-pressed', speakEnabled ? 'true' : 'false');
+  btn.title = speakEnabled ? 'Click to mute Sage' : 'Click to hear Sage read responses aloud';
 }
 
 function toggleSpeaker() {
   speakEnabled = !speakEnabled;
-  const btn = document.getElementById('speakerBtn');
-  btn.textContent = speakEnabled ? 'Voice Off' : 'Voice On';
-  btn.classList.toggle('active', speakEnabled);
+  try { localStorage.setItem('caregoals_voice', speakEnabled ? '1' : '0'); } catch (_) {}
+  updateSpeakerBtn();
+  if (speakEnabled) {
+    // Confirmation phrase so the user knows it works AND so the browser's
+    // auto-play policy gets satisfied via this user-gesture click.
+    speak("Voice on. I'll read what I say from here.", true);
+  } else {
+    try { window.speechSynthesis.cancel(); } catch (_) {}
+  }
+}
+
+// Per-message Replay button — appears on hover or focus on any Sage bubble.
+// Clicking it forces playback of that exact message regardless of voice toggle.
+function attachReplayButton(bubble, text) {
+  if (!bubble || bubble.querySelector('.replay-btn')) return;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'replay-btn';
+  btn.setAttribute('aria-label', 'Hear this message');
+  btn.title = 'Hear this message';
+  btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1.5a1 1 0 0 0-1.6-.8L3.4 3.5H1.5A1.5 1.5 0 0 0 0 5v6a1.5 1.5 0 0 0 1.5 1.5h1.9l3 2.8A1 1 0 0 0 8 14.5v-13zm3.5 1.7a.75.75 0 0 1 1.05.18A8 8 0 0 1 14 8a8 8 0 0 1-1.45 4.62.75.75 0 0 1-1.23-.86A6.5 6.5 0 0 0 12.5 8a6.5 6.5 0 0 0-1.18-3.76.75.75 0 0 1 .18-1.04zm-1.7 2a.75.75 0 0 1 1.04.2A5.5 5.5 0 0 1 12 8a5.5 5.5 0 0 1-1.16 3.6.75.75 0 0 1-1.18-.93A4 4 0 0 0 10.5 8a4 4 0 0 0-.84-2.67.75.75 0 0 1 .14-1.13z"/></svg>';
+  btn.addEventListener('click', (ev) => {
+    ev.stopPropagation();
+    speak(text, true);
+  });
+  bubble.appendChild(btn);
 }
 
 // Speech-to-Text: User talks
@@ -842,10 +1567,15 @@ function saveConversation() {
     wishes: wishes,
     step: step,
     timestamp: new Date().toISOString(),
-    messages: Array.from(chat.querySelectorAll('.msg')).map(m => ({
-      sender: m.classList.contains('msg-sage') ? 'sage' : 'user',
-      text: m.querySelector('.msg-bubble').textContent,
-    })),
+    messages: Array.from(chat.querySelectorAll('.msg')).map(m => {
+      // Sage messages can have class 'msg-reed' (current) or 'msg-sage' (legacy).
+      // User messages have 'msg-user'. Default-treat anything not 'msg-user' as Sage.
+      const isUser = m.classList.contains('msg-user');
+      return {
+        sender: isUser ? 'user' : 'reed',
+        text: m.querySelector('.msg-bubble').textContent,
+      };
+    }),
   };
   localStorage.setItem('caregoals_conversation', JSON.stringify(data));
 }
@@ -874,19 +1604,56 @@ function loadConversation() {
     step = data.step || 0;
     data.messages.forEach(function(m) {
       var d = document.createElement('div');
-      d.className = 'msg msg-' + m.sender;
+      // Normalize legacy 'sage' sender → 'reed' so styles + replay attach correctly.
+      var sender = (m.sender === 'sage') ? 'reed' : (m.sender || 'user');
+      d.className = 'msg msg-' + sender;
       var b = document.createElement('div');
       b.className = 'msg-bubble';
       b.textContent = m.text;
       d.appendChild(b);
+      // Attach replay button to historical Sage bubbles too.
+      if (sender !== 'user') {
+        try { attachReplayButton(b, m.text); } catch (_) {}
+      }
       chat.appendChild(d);
     });
     if (step >= 13 && Object.keys(wishes).length >= 5) {
       showWishesCard();
     }
     chat.scrollTop = chat.scrollHeight;
-    setTimeout(function() {
-      reedReply((name || 'Friend') + ', welcome back. I remember our conversation. You can keep going, add to your wishes, or just sit here.');
+    // Welcome-back rule: only greet if the LAST message is from the user. If
+    // the last message is already from Sage (because we just reloaded after
+    // Sage's last reply, or after a previous welcome-back), don't stack
+    // another greeting on top — that's the "Hey there. Good to see you back."
+    // pile-up that confused things.
+    const lastMsg = data.messages[data.messages.length - 1];
+    const lastIsSage = lastMsg && (lastMsg.sender === 'reed' || lastMsg.sender === 'sage');
+    if (lastIsSage) {
+      return true; // Just resume — no welcome-back needed.
+    }
+    // Claude-driven welcome-back when the user left mid-thought (last msg was theirs).
+    setTimeout(async function() {
+      const fallback = (name || 'Friend') + ", welcome back. I remember where we were — keep going whenever you're ready.";
+      try {
+        const r = await fetch(SAGE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: '[The user just opened this page again after some time away. Greet them briefly (1-2 sentences) and pick up where we left off — they left mid-thought after their own message. Reference what they just said. Do not summarize the whole conversation.]',
+            site: 'caregoals',
+            history: buildHistory()
+          })
+        });
+        const respData = await (r.ok ? r.json() : Promise.resolve({}));
+        const text = (respData && respData.response) ? respData.response : fallback;
+        const parsed = parseChoiceMarkers(text);
+        await addMsg(parsed.text || fallback, 'reed');
+        try { speak(parsed.text || fallback); } catch (_) {}
+        try { saveConversation(); } catch (_) {}
+      } catch (e) {
+        console.warn('welcome-back claude call failed, using fallback', e);
+        try { reedReply(fallback); } catch (_) {}
+      }
     }, 800);
     return true;
   } catch(e) {
@@ -896,10 +1663,23 @@ function loadConversation() {
   }
 }
 
+// Clear the saved conversation and start over. Confirms first because this
+// is destructive of the user's prior work.
+function startOver() {
+  const ok = window.confirm("Start a new conversation? Your current one will be cleared. (You can always print or save first.)");
+  if (!ok) return;
+  try {
+    localStorage.removeItem('caregoals_conversation');
+    localStorage.removeItem('caregoals_review_requested');
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+  } catch (_) {}
+  location.reload();
+}
+
 // Start — always show something
 function startFresh() {
   step = 1;
-  var msg = "Hi. I'm Reed.\n\nI'm glad you're here. What we're going to do is simple — just talk. About you. About what matters to you. About the things you want the people you love to understand.\n\nBy the end, you'll have something real — a document in your own words that your family and your doctor can hold onto. Not medical language. Your language.\n\nWhat's your name?";
+  var msg = "Hi. I'm Sage.\n\nI'm glad you're here. What we're going to do is simple — just talk. About you. About what matters to you. About the things you want the people you love to understand.\n\nBy the end, you'll have something real — a document in your own words that your family and your doctor can hold onto. Not medical language. Your language.\n\nWhat's your name?";
   addMsg(msg, 'reed');
 }
 
@@ -917,6 +1697,8 @@ try {
 }
 
 window.addEventListener('load', function() {
+  // Initialize the voice button label to reflect persisted state.
+  try { updateSpeakerBtn(); } catch (_) {}
   setTimeout(function() {
     try {
       var resumed = loadConversation();

@@ -33,7 +33,7 @@
     ]
   };
 
-  // ── Reed chips per profile ────────────────────────────────────────
+  // ── Sage chips per profile ────────────────────────────────────────
   var CHIPS = {
     surgeon:   ['What codes am I likely missing?', 'How do I set up RTM billing?'],
     family:    ['Do I qualify for an LMN?', 'What does $59/mo include?'],
@@ -195,7 +195,7 @@
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  // ── RIGHT: Reed panel ─────────────────────────────────────────────
+  // ── RIGHT: Sage panel ─────────────────────────────────────────────
   function renderChips() {
     var profile = getProfile();
     var group   = profileGroup(profile);
@@ -227,13 +227,13 @@
       });
       btn.addEventListener('click', function() {
         document.getElementById('hh-sage-input').value = q;
-        hhRailReedSubmit();
+        hhRailSageSubmit();
       });
       el.appendChild(btn);
     });
   }
 
-  window.hhRailToggleReed = function() {
+  window.hhRailToggleSage = function() {
     var panel = document.getElementById('hh-sage-panel');
     if (!panel) return;
     sageOpen = !sageOpen;
@@ -247,7 +247,7 @@
     }
   };
 
-  window.hhRailReedSubmit = function() {
+  window.hhRailSageSubmit = function() {
     var input = document.getElementById('hh-sage-input');
     var msgs  = document.getElementById('hh-sage-messages');
     if (!input || !msgs) return;
@@ -272,7 +272,7 @@
       msgs.removeChild(typing);
       var reply = document.createElement('div');
       reply.style.cssText = 'background:rgba(255,255,255,0.04);border-radius:10px 10px 10px 2px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:88%';
-      reply.innerHTML = 'Reed is the AI layer across co-op.care. <a href="https://co-op.care" style="color:var(--footer-accent);text-decoration:none;font-weight:600">Join co-op.care \u2192</a> to start a conversation with full family care context.';
+      reply.innerHTML = 'Sage is the AI layer across co-op.care. <a href="https://co-op.care" style="color:var(--footer-accent);text-decoration:none;font-weight:600">Join co-op.care \u2192</a> to start a conversation with full family care context.';
       msgs.appendChild(reply);
       msgs.scrollTop = msgs.scrollHeight;
     }, 1200);
